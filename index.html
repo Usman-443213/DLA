@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dealer Licensing Authority — Start Your Own Dealership</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-lt:#E8C96A;--gold-dk:#9A7A2E;
+  --navy:#0A1628;--navy-m:#112038;--navy-l:#1C3260;
+  --white:#fff;--gray:#8A8A8A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(10,22,40,0.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,0.18);transition:all .3s}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-badge{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:var(--navy);letter-spacing:-.5px}
+.logo-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.2;color:var(--white)}
+.logo-name small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;list-style:none;gap:2.2rem;align-items:center}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,.72);font-size:.85rem;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{background:var(--gold)!important;color:var(--navy)!important;padding:.5rem 1.3rem;border-radius:6px;font-weight:600!important;font-size:.82rem!important;letter-spacing:.04em;transition:background .2s!important}
+.nav-btn:hover{background:var(--gold-lt)!important}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5%;overflow:hidden}
+.hero-bg{position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(10,22,40,.82) 0%,rgba(17,32,56,.55) 45%,rgba(10,22,40,.75) 100%),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80') center 60%/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 72% 50%,rgba(201,168,76,.07) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:56px 56px}
+.hero-inner{position:relative;z-index:2;max-width:680px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.28);border-radius:100px;padding:.38rem 1rem;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;animation:fadeUp .7s ease both}
+.hero-pill::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:900;line-height:1.07;margin-bottom:1.4rem;animation:fadeUp .7s ease .1s both}
+h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:1.05rem;font-weight:300;line-height:1.78;color:rgba(255,255,255,.68);max-width:540px;margin-bottom:2.4rem;animation:fadeUp .7s ease .2s both}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;animation:fadeUp .7s ease .3s both}
+.btn-g{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);padding:.85rem 1.9rem;border-radius:8px;font-weight:600;font-size:.92rem;text-decoration:none;transition:background .2s,transform .15s}
+.btn-g:hover{background:var(--gold-lt);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--white);padding:.85rem 1.9rem;border-radius:8px;border:1px solid rgba(255,255,255,.22);font-size:.92rem;text-decoration:none;transition:all .2s}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.hero-counters{position:absolute;bottom:2.8rem;right:5%;display:flex;gap:2.8rem;animation:fadeUp .7s ease .4s both}
+.ctr{text-align:center}
+.ctr-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);display:block}
+.ctr-l{font-size:.7rem;color:rgba(255,255,255,.45);letter-spacing:.09em;text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* SHARED SECTION */
+section{padding:5.5rem 5%}
+.s-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.65rem}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.3vw,2.9rem);font-weight:700;line-height:1.15;margin-bottom:1.1rem}
+.s-desc{font-size:.97rem;font-weight:300;line-height:1.82;color:rgba(255,255,255,.62);max-width:540px}
+.bar{width:44px;height:2px;background:var(--gold);margin:1.3rem 0}
+.mxw{max-width:1200px;margin:0 auto}
+
+/* ADVANTAGE STRIP */
+#advantage{background:var(--navy-m)}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.2rem}
+.adv-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.adv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-dk));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.adv-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-4px)}
+.adv-card:hover::before{transform:scaleX(1)}
+.adv-ico{width:46px;height:46px;background:rgba(201,168,76,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--gold)}
+.adv-card h3{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;margin-bottom:.7rem}
+.adv-card p{font-size:.87rem;line-height:1.72;color:rgba(255,255,255,.58)}
+
+/* VIDEO */
+#video-sec{background:var(--navy)}
+.vid-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto}
+.vid-box{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--navy-m);border:1px solid rgba(201,168,76,.18)}
+.vid-box iframe,.vid-box video{width:100%;height:100%;border:none;display:block}
+.vid-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(135deg,var(--navy-m),var(--navy-l));cursor:pointer}
+.play-ring{width:70px;height:70px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s}
+.vid-overlay:hover .play-ring{transform:scale(1.1);background:var(--gold-lt)}
+.play-ring svg{margin-left:4px}
+.vid-overlay p{color:rgba(255,255,255,.55);font-size:.82rem;letter-spacing:.05em}
+
+/* HOW IT WORKS */
+#how{background:var(--navy-m)}
+.how-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.how-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.065);border-radius:16px;padding:1.9rem;transition:all .3s;overflow:hidden;position:relative}
+.how-card:hover{border-color:rgba(201,168,76,.2);transform:translateY(-3px)}
+.how-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;margin-bottom:.8rem;transition:color .3s,text-shadow .3s}
+.how-card:hover .how-n{color:rgba(201,168,76,1);text-shadow:0 0 32px rgba(201,168,76,.7),0 0 8px rgba(201,168,76,.5)}
+.how-ico{width:44px;height:44px;background:rgba(201,168,76,.09);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--gold)}
+.how-card h3{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;margin-bottom:.65rem}
+.how-card p{font-size:.85rem;line-height:1.72;color:rgba(255,255,255,.57)}
+
+/* BENEFITS */
+#benefits{background:var(--navy)}
+.ben-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
+.ben-card{background:var(--navy-l);border:1px solid rgba(201,168,76,.22);border-radius:20px;padding:2.3rem;position:relative}
+.float-tag{position:absolute;top:-1.4rem;right:-1.4rem;background:var(--gold);color:var(--navy);border-radius:12px;padding:.9rem 1.1rem;text-align:center;font-weight:700;box-shadow:0 8px 28px rgba(201,168,76,.28)}
+.float-tag .fn{font-family:'Playfair Display',serif;font-size:1.9rem;display:block;line-height:1}
+.float-tag .fl{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}
+.ben-row{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem;background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.1);border-radius:12px;margin-bottom:.85rem;transition:background .2s}
+.ben-row:last-child{margin-bottom:0}
+.ben-row:hover{background:rgba(201,168,76,.09)}
+.b-ico{width:40px;min-width:40px;height:40px;background:rgba(201,168,76,.13);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.ben-row h4{font-size:.92rem;font-weight:600;margin-bottom:.18rem}
+.ben-row p{font-size:.78rem;color:rgba(255,255,255,.52);line-height:1.5}
+
+/* MAP / AUCTIONS */
+#auctions{background:var(--navy-m)}
+.map-wrap{text-align:center;margin-bottom:3rem}
+.usa-map-container{position:relative;max-width:820px;margin:0 auto}
+.usa-svg-wrap{width:100%;background:rgba(255,255,255,.02);border:1px solid rgba(201,168,76,.12);border-radius:20px;padding:2rem;overflow:hidden}
+.usa-svg-wrap svg{width:100%;height:auto;display:block}
+.map-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.map-label p{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);font-weight:700}
+.map-label small{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.08em}
+.auction-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem;max-width:1100px;margin-left:auto;margin-right:auto}
+.a-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.6rem 1.2rem;text-align:center;transition:all .3s}
+.a-card:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.22);transform:translateY(-3px)}
+.a-flag{font-size:2.2rem;margin-bottom:.75rem;display:block}
+.a-card h3{font-family:'Playfair Display',serif;font-size:1.08rem;margin-bottom:.4rem}
+.a-card p{font-size:.78rem;color:rgba(255,255,255,.48);line-height:1.55}
+.a-tag{display:inline-block;margin-top:.8rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,.28);border-radius:100px;padding:.22rem .7rem}
+
+/* RESOURCES (auction partners) */
+#partners{background:var(--navy)}
+.partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.8rem;max-width:1100px;margin-left:auto;margin-right:auto}
+.p-tile{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:1.2rem 1rem;text-align:center;transition:all .3s}
+.p-tile:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.2)}
+.p-tile h4{font-size:.88rem;font-weight:600;margin-bottom:.25rem}
+.p-tile p{font-size:.72rem;color:rgba(255,255,255,.42);line-height:1.45}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--navy-m)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem;max-width:1100px;margin-left:auto;margin-right:auto}
+.t-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:2rem;transition:border-color .3s}
+.t-card:hover{border-color:rgba(201,168,76,.2)}
+.t-stars{color:var(--gold);font-size:1rem;margin-bottom:1rem;letter-spacing:2px}
+.t-card p{font-size:.88rem;line-height:1.75;color:rgba(255,255,255,.65);font-style:italic;margin-bottom:1.2rem}
+.t-author{font-size:.82rem;font-weight:600;color:var(--white)}
+.t-author small{display:block;font-size:.72rem;color:rgba(255,255,255,.4);font-weight:400;margin-top:2px}
+
+/* FAQ */
+#faq{background:var(--navy)}
+.faq-wrap{max-width:860px;margin:0 auto}
+.faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .3s;margin-bottom:.9rem}
+.faq-item:hover,.faq-item.open{border-color:rgba(201,168,76,.25)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.35rem 1.7rem;font-size:.95rem;font-weight:500;gap:1rem}
+.faq-ico{min-width:20px;color:var(--gold);transition:transform .3s}
+.faq-item.open .faq-ico{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;padding:0 1.7rem;font-size:.88rem;line-height:1.82;color:rgba(255,255,255,.58);transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:280px;padding:0 1.7rem 1.4rem}
+
+/* GET STARTED */
+#start{background:var(--navy-m)}
+.start-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1200px;margin:0 auto}
+.chk-list{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-top:1.8rem}
+.chk-list li{display:flex;align-items:flex-start;gap:.9rem;padding:1.15rem 1.4rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;font-size:.88rem;line-height:1.6;color:rgba(255,255,255,.72);transition:border-color .2s}
+.chk-list li:hover{border-color:rgba(201,168,76,.2)}
+.chk-dot{min-width:20px;height:20px;background:rgba(201,168,76,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.cta-box{background:linear-gradient(135deg,var(--navy-l),var(--navy-m));border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:2.8rem 2.2rem;position:sticky;top:100px}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:.9rem}
+.cta-box p{color:rgba(255,255,255,.58);font-size:.88rem;line-height:1.72;margin-bottom:1.8rem}
+.phone-row{display:flex;align-items:center;gap:1rem;padding:1.2rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:12px;text-decoration:none;transition:background .2s;margin-bottom:1.3rem}
+.phone-row:hover{background:rgba(201,168,76,.13)}
+.phone-row svg{color:var(--gold);min-width:22px}
+.phone-lbl{font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
+.phone-num{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--white)}
+.note{font-size:.72rem;color:rgba(255,255,255,.28);text-align:center;margin-top:1rem}
+
+/* FOOTER */
+footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,168,76,.14)}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.8rem}
+.foot-brand p{margin-top:.9rem;font-size:.85rem;color:rgba(255,255,255,.4);line-height:1.7;max-width:300px}
+.foot-col h4{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.foot-col a{text-decoration:none;color:rgba(255,255,255,.45);font-size:.85rem;transition:color .2s}
+.foot-col a:hover{color:var(--white)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.8rem;display:flex;align-items:center;justify-content:space-between;font-size:.78rem;color:rgba(255,255,255,.28)}
+.foot-bottom span{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .vid-wrap,.ben-wrap,.start-wrap,.how-top{grid-template-columns:1fr;gap:2.5rem}
+  .how-grid,.adv-grid{grid-template-columns:1fr}
+  .auction-logos,.partner-grid,.test-grid{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr}
+  .hero-counters{position:static;margin-top:2.5rem;justify-content:flex-start}
+  .float-tag{position:static;display:inline-block;margin-bottom:1rem}
+}
+@media(max-width:500px){
+  .auction-logos,.partner-grid,.test-grid{grid-template-columns:1fr}
+  h1{font-size:2.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-badge">DLA</div>
+    <div class="logo-name">
+      Dealer Licensing Authority
+      <small>Your License. Your Business.</small>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#advantage">Our Advantage</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#auctions">Auction Access</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#start" class="nav-btn">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">10+ Years in the Auto Industry</div>
+    <h1>Your Turnkey<br/><em>Dealership</em><br/>Starts Here.</h1>
+    <p class="hero-sub">No matter where you are, we make it possible to launch a fully licensed, independent auto dealership under your own name — without the red tape, the guesswork, or the runaround. We handle everything.</p>
+    <div class="hero-btns">
+      <a href="#start" class="btn-g">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Inquire Now
+      </a>
+      <a href="#video-sec" class="btn-o">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        Watch Overview
+      </a>
+    </div>
+  </div>
+  <div class="hero-counters">
+    <div class="ctr"><span class="ctr-n">30</span><span class="ctr-l">Days to License</span></div>
+    <div class="ctr"><span class="ctr-n">10+</span><span class="ctr-l">Years Experience</span></div>
+    <div class="ctr"><span class="ctr-n">4</span><span class="ctr-l">Markets Unlocked</span></div>
+  </div>
+</section>
+
+<!-- ADVANTAGE -->
+<section id="advantage">
+  <div class="mxw">
+    <p class="s-label" style="text-align:center">Why Choose Us</p>
+    <h2 class="s-title" style="text-align:center;max-width:600px;margin:0 auto 1rem">From Day One, We Handle<br/>Every Detail For You.</h2>
+    <p class="s-desc" style="text-align:center;margin:0 auto">We've spent over a decade in the auto industry perfecting a process that removes every obstacle between you and your dealer license — so you can focus on building your business.</p>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-ico">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Turnkey Business Formation</h3>
+        <p>Provide your chosen company name and we take it from there — forming your Corp or LLC, securing your FEIN and state tax ID, and ensuring every document meets licensing requirements from the start.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-ico">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Full Licensing Managed For You</h3>
+        <p>We coordinate your dealer license application end-to-end — background check scheduling, pre-license seminar registration, surety bond, and insurance — so nothing slips through the cracks.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-ico">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Ongoing Expert Support</h3>
+        <p>Our relationship doesn't end at delivery of your license. We provide continued guidance, compliance support, and referrals to industry specialists to help you operate and grow your dealership long-term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video-sec">
+  <div class="vid-wrap">
+    <div>
+      <p class="s-label">See It In Action</p>
+      <h2 class="s-title">Everything You Need to Know — In Under 3 Minutes</h2>
+      <div class="bar"></div>
+      <p class="s-desc">Watch how we take clients from first inquiry to fully licensed dealership — handling every step so you don't have to.</p>
+      <br/><br/>
+      <a href="#start" class="btn-g">Start Your Inquiry<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="vid-box" id="vidBox">
+      <div class="vid-overlay" onclick="playVideo()">
+        <div class="play-ring">
+          <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <p>Click to Play — Dealer Licensing Overview</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="mxw">
+    <div class="how-top">
+      <div>
+        <p class="s-label">The Process</p>
+        <h2 class="s-title">Simple Steps.<br/>We Do the Heavy Lifting.</h2>
+      </div>
+      <p class="s-desc">There are no complicated requirements on your end. You contact us — we handle everything else. Our turnkey process is built for speed, simplicity, and results.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-n">01</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.58 4.47 2 2 0 0 1 3.55 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.25z"/></svg></div>
+        <h3>Reach Out to Us</h3>
+        <p>Contact our team directly. Tell us your goals and we'll map out the right path for your dealership setup — no forms, no runaround.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">02</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>We Set Up Your Business</h3>
+        <p>We form your Corp or LLC under your chosen name, secure your tax identification numbers, and prepare every document needed to apply for your dealer license.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">03</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>We Handle All Requirements</h3>
+        <p>From your background check at an approved GAPS site to registering you for the pre-license seminar — we coordinate everything. You just show up.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">04</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h3>License Application Filed</h3>
+        <p>We submit your complete application to the Board of Used Car Dealers with all supporting documentation — including insurance and surety bond coordination.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">05</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Your License Is Approved</h3>
+        <p>In as little as 21–30 days, your dealer license is active and your dealership is registered under your own business name — ready to operate immediately.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-n">06</div>
+        <div class="how-ico"><svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+        <h3>Access Auctions & Start Selling</h3>
+        <p>Immediately access dealer-only wholesale auctions across the USA, Mexico, Canada, and Europe — and begin retailing or wholesaling vehicles anywhere in the country.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="ben-wrap">
+    <div>
+      <p class="s-label">What's Included</p>
+      <h2 class="s-title">Everything You Need.<br/>Nothing You Don't.</h2>
+      <div class="bar"></div>
+      <p class="s-desc">Our service is the most comprehensive independent dealer setup available. Every tool, credential, and resource required to run your dealership comes standard — not as an add-on.</p>
+      <br/><br/>
+      <a href="#start" class="btn-g" style="margin-top:.5rem">
+        Check Your Eligibility
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="float-tag"><span class="fn">30</span><span class="fl">Day Avg.</span></div>
+      <div class="ben-card">
+        <div class="ben-row">
+          <div class="b-ico"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+          <div><h4>Dealer License Under Your Name</h4><p>Corp or LLC registration — your brand, your identity, your business.</p></div>
+        </div>
+        <div class="ben-row">
+          <div class="b-ico"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <div><h4>Dealer-Only Wholesale Auction Access</h4><p>USA, Canada, Mexico & Europe — inventory the public cannot reach.</p></div>
+        </div>
+        <div class="ben-row">
+          <div class="b-ico"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div><h4>Floorplan Financing Access</h4><p>Fund vehicle purchases without draining personal capital — scale from day one.</p></div>
+        </div>
+        <div class="ben-row">
+          <div class="b-ico"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div><h4>Instant Vehicle Tagging</h4><p>Tag every vehicle you sell with zero per-car fees. Zero hidden charges.</p></div>
+        </div>
+        <div class="ben-row">
+          <div class="b-ico"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          <div><h4>Customer Auto Loan Arrangements</h4><p>Help your buyers get financed — offer real loan options at the point of sale.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBE + AUCTIONS -->
+<section id="auctions" style="background:var(--navy-m)">
+<style>
+#globe-section-inner{max-width:1200px;margin:0 auto}
+#globe-header{text-align:center;margin-bottom:3rem}
+#globe-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+#globe-canvas-wrap{display:flex;flex-direction:column;align-items:center;gap:.75rem;position:relative}
+#globeCanvas{cursor:grab;display:block;border-radius:50%}
+#globe-drag-hint{font-size:.7rem;color:rgba(255,255,255,.28);letter-spacing:.06em}
+#globe-right{display:flex;flex-direction:column;gap:.9rem}
+#globe-info{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.4rem 1.6rem;min-height:110px;display:flex;flex-direction:column;justify-content:center;transition:border-color .3s}
+#globe-info.lit{border-color:rgba(201,168,76,.42)}
+#globe-info-top{display:flex;align-items:center;gap:1rem;margin-bottom:.7rem}
+#globe-info-flag{font-size:2.2rem;line-height:1}
+#globe-info-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:#fff;margin:0 0 .25rem}
+#globe-info-tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:.18rem .65rem;display:inline-block}
+#globe-info-desc{font-size:.86rem;line-height:1.75;color:rgba(255,255,255,.58);margin:0}
+#globe-info-empty{font-size:.83rem;color:rgba(255,255,255,.28);font-style:italic;margin:0;text-align:center}
+#globe-cards{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.g-card{display:flex;align-items:center;gap:.65rem;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.07);border-radius:12px;cursor:pointer;transition:all .22s;background:rgba(255,255,255,.03);user-select:none}
+.g-card:hover{border-color:rgba(201,168,76,.28);background:rgba(201,168,76,.04)}
+.g-card.g-active{border-color:rgba(201,168,76,.55);background:rgba(201,168,76,.09)}
+.g-card-flag{font-size:1.4rem;line-height:1}
+.g-card-body{flex:1;display:flex;flex-direction:column;gap:.15rem}
+.g-card-name{font-size:.83rem;font-weight:600;color:#fff;transition:color .22s}
+.g-card.g-active .g-card-name{color:#C9A84C}
+.g-card-sub{font-size:.6rem;color:rgba(255,255,255,.38);letter-spacing:.05em}
+.g-card-arrow{color:#C9A84C;font-size:1.1rem;line-height:1;transition:transform .22s}
+.g-card.g-active .g-card-arrow{transform:rotate(90deg)}
+@media(max-width:860px){#globe-layout{grid-template-columns:1fr}#globe-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){#globe-cards{grid-template-columns:1fr}}
+</style>
+
+<div id="globe-section-inner">
+  <div id="globe-header">
+    <p class="s-label">Auction Access</p>
+    <h2 class="s-title" style="text-align:center">Beyond Borders.<br/><em style="font-style:normal;color:var(--gold)">Your License Works Everywhere.</em></h2>
+    <p class="s-desc" style="text-align:center;margin:0 auto">Retail or wholesale to any buyer in the United States. Export vehicles across the globe. Access dealer-only auctions in four major international markets — all under one license.</p>
+  </div>
+
+  <div id="globe-layout">
+    <!-- Globe -->
+    <div id="globe-canvas-wrap">
+      <canvas id="globeCanvas" width="480" height="480"></canvas>
+      <span id="globe-drag-hint">Drag to rotate · Click a marker to explore</span>
+    </div>
+
+    <!-- Right panel -->
+    <div id="globe-right">
+      <!-- Info box -->
+      <div id="globe-info">
+        <p id="globe-info-empty">← Click a glowing marker on the globe to explore a region</p>
+        <div id="globe-info-content" style="display:none">
+          <div id="globe-info-top">
+            <span id="globe-info-flag"></span>
+            <div>
+              <h3 id="globe-info-name"></h3>
+              <span id="globe-info-tag"></span>
+            </div>
+          </div>
+          <p id="globe-info-desc"></p>
+        </div>
+      </div>
+
+      <!-- Region cards -->
+      <div id="globe-cards">
+        <div class="g-card" data-id="usa">
+          <span class="g-card-flag">🇺🇸</span>
+          <div class="g-card-body"><span class="g-card-name">United States</span><span class="g-card-sub">Primary Market</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="canada">
+          <span class="g-card-flag">🇨🇦</span>
+          <div class="g-card-body"><span class="g-card-name">Canada</span><span class="g-card-sub">North American Network</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="mexico">
+          <span class="g-card-flag">🇲🇽</span>
+          <div class="g-card-body"><span class="g-card-name">Mexico</span><span class="g-card-sub">Cross-Border Access</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="europe">
+          <span class="g-card-flag">🇪🇺</span>
+          <div class="g-card-body"><span class="g-card-name">Europe</span><span class="g-card-sub">International Access</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(function(){
+const REGIONS = {
+  usa:    { flag:'🇺🇸', name:'United States',  tag:'Primary Market',         desc:'The largest dealer-only auction network in the country — thousands of vehicles available every week at wholesale prices.',                               lat:38,  lng:-97  },
+  canada: { flag:'🇨🇦', name:'Canada',          tag:'North American Network', desc:'Access Canadian wholesale auctions for additional inventory diversity, seasonal vehicles, and cross-border pricing advantages.',                            lat:56,  lng:-96  },
+  mexico: { flag:'🇲🇽', name:'Mexico',          tag:'Cross-Border Access',    desc:'Source quality inventory from one of the most active used-vehicle markets in the hemisphere at competitive wholesale rates.',                               lat:23,  lng:-102 },
+  europe: { flag:'🇪🇺', name:'Europe',          tag:'International Access',   desc:'Import premium, luxury, and specialty vehicles from European wholesale auctions — exclusively available to licensed dealers.',                              lat:50,  lng:10   }
+};
+
+const HIGHLIGHT_COUNTRIES = {
+  usa:    ['840'],
+  canada: ['124'],
+  mexico: ['484'],
+  europe: ['276','250','380','724','826','528','756','40','56','752','578','208','246','372','620','703','705','191','348','300','203']
+};
+
+const canvas = document.getElementById('globeCanvas');
+const ctx    = canvas.getContext('2d');
+let W = canvas.width, H = canvas.height;
+let rotLng = -60, rotLat = 15;
+let dragging = false, lastX = 0, lastY = 0;
+let autoSpin = true;
+let activeId = null, hoveredId = null;
+let worldData = null;
+let animT = 0;
+
+// Responsive canvas size
+function resizeCanvas(){
+  const wrap = document.getElementById('globe-canvas-wrap');
+  const size = Math.min(wrap.clientWidth, 520);
+  canvas.width  = size;
+  canvas.height = size;
+  W = H = size;
+  if(worldData) draw();
+}
+
+// Projection
+function getProjection(){
+  return d3.geoOrthographic()
+    .scale((W / 2) * 0.92)
+    .translate([W/2, H/2])
+    .clipAngle(90)
+    .rotate([-rotLng, -rotLat, 0]);
+}
+
+// Find which region a country numeric ID belongs to
+function getRegionForCountry(numId){
+  for(const [rid, ids] of Object.entries(HIGHLIGHT_COUNTRIES)){
+    if(ids.includes(String(numId))) return rid;
+  }
+  return null;
+}
+
+function draw(){
+  if(!worldData) return;
+  ctx.clearRect(0,0,W,H);
+
+  const proj = getProjection();
+  const path = d3.geoPath().projection(proj).context(ctx);
+  const countries = topojson.feature(worldData, worldData.objects.countries);
+
+  // ── Outer atmosphere glow ──
+  const grad = ctx.createRadialGradient(W/2,H/2,W*0.42,W/2,H/2,W*0.54);
+  grad.addColorStop(0,'rgba(34,80,180,0.18)');
+  grad.addColorStop(1,'rgba(10,22,40,0)');
+  ctx.beginPath(); ctx.arc(W/2,H/2,W*0.54,0,Math.PI*2);
+  ctx.fillStyle=grad; ctx.fill();
+
+  // ── Ocean ──
+  ctx.beginPath();
+  path({type:'Sphere'});
+  const ocean = ctx.createRadialGradient(W*0.42,H*0.36,0,W/2,H/2,W*0.46);
+  ocean.addColorStop(0,'#0e2144');
+  ocean.addColorStop(1,'#071020');
+  ctx.fillStyle = ocean;
+  ctx.fill();
+
+  // ── Graticule (grid lines) ──
+  const grat = d3.geoGraticule()();
+  ctx.beginPath(); path(grat);
+  ctx.strokeStyle = 'rgba(201,168,76,0.07)';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // ── Countries ──
+  countries.features.forEach(feature => {
+    const numId = feature.id ? String(feature.id) : '';
+    const regionId = getRegionForCountry(numId);
+    const isActive  = regionId && activeId  === regionId;
+    const isHovered = regionId && hoveredId === regionId;
+    const isHighlight = regionId !== null;
+
+    ctx.beginPath(); path(feature);
+
+    if(isActive){
+      ctx.fillStyle   = 'rgba(201,168,76,0.85)';
+      ctx.strokeStyle = 'rgba(255,220,120,0.9)';
+      ctx.lineWidth   = 0.8;
+    } else if(isHovered){
+      ctx.fillStyle   = 'rgba(201,168,76,0.55)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.7)';
+      ctx.lineWidth   = 0.6;
+    } else if(isHighlight){
+      ctx.fillStyle   = 'rgba(201,168,76,0.22)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.4)';
+      ctx.lineWidth   = 0.5;
+    } else {
+      ctx.fillStyle   = 'rgba(30,58,100,0.85)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.12)';
+      ctx.lineWidth   = 0.3;
+    }
+    ctx.fill();
+    ctx.stroke();
+  });
+
+  // ── Globe border ──
+  ctx.beginPath(); path({type:'Sphere'});
+  ctx.strokeStyle = 'rgba(201,168,76,0.28)';
+  ctx.lineWidth   = 1.2;
+  ctx.stroke();
+
+  // ── Markers ──
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+
+    // Check if point is on visible side
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+
+    const isAct = activeId  === id;
+    const isHov = hoveredId === id;
+    const hi    = isAct || isHov;
+
+    // Outer pulse ring
+    const pulse = hi ? 18 + Math.sin(animT * 2)*5 : 12 + Math.sin(animT * 1.5 + Object.keys(REGIONS).indexOf(id))*3;
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], pulse, 0, Math.PI*2);
+    ctx.strokeStyle = hi ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.2)';
+    ctx.lineWidth = hi ? 1.5 : 1;
+    ctx.stroke();
+
+    // Inner ring
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], pulse * 0.6, 0, Math.PI*2);
+    ctx.strokeStyle = hi ? 'rgba(255,220,120,0.35)' : 'rgba(201,168,76,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Dot
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], hi ? 7 : 5, 0, Math.PI*2);
+    ctx.fillStyle = hi ? '#FFD966' : '#C9A84C';
+    if(hi){
+      ctx.shadowColor = '#FFD966';
+      ctx.shadowBlur  = 14;
+    }
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Label
+    ctx.font = `${hi ? 600 : 500} ${hi ? 12 : 11}px 'DM Sans', sans-serif`;
+    ctx.fillStyle    = hi ? '#FFD966' : 'rgba(201,168,76,0.85)';
+    ctx.textAlign    = 'center';
+    ctx.textBaseline = 'bottom';
+    // Background pill for label
+    const label = r.name;
+    const tw    = ctx.measureText(label).width;
+    const lx    = pos[0], ly = pos[1] - (hi ? 12 : 10);
+    ctx.fillStyle = 'rgba(10,22,40,0.7)';
+    ctx.beginPath();
+    ctx.roundRect(lx - tw/2 - 5, ly - 14, tw + 10, 16, 4);
+    ctx.fill();
+    ctx.fillStyle = hi ? '#FFD966' : '#C9A84C';
+    ctx.fillText(label, lx, ly);
+    ctx.textBaseline = 'alphabetic';
+  });
+
+  // ── Specular shine ──
+  const shine = ctx.createRadialGradient(W*0.38, H*0.3, 0, W*0.38, H*0.3, W*0.38);
+  shine.addColorStop(0, 'rgba(255,255,255,0.06)');
+  shine.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.beginPath(); path({type:'Sphere'});
+  ctx.fillStyle = shine;
+  ctx.fill();
+}
+
+// ── Animation loop ──
+function loop(){
+  animT += 0.025;
+  if(autoSpin){ rotLng += 0.18; if(rotLng>180) rotLng-=360; }
+  draw();
+  requestAnimationFrame(loop);
+}
+
+// ── Load world data ──
+fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+  .then(r => r.json())
+  .then(data => {
+    worldData = data;
+    resizeCanvas();
+    loop();
+  });
+
+window.addEventListener('resize', resizeCanvas);
+
+// ── Drag ──
+canvas.addEventListener('mousedown', e => {
+  dragging = true; autoSpin = false;
+  lastX = e.clientX; lastY = e.clientY;
+  canvas.style.cursor = 'grabbing';
+});
+window.addEventListener('mousemove', e => {
+  if(!dragging) return;
+  rotLng += (e.clientX - lastX) * 0.4;
+  rotLat -= (e.clientY - lastY) * 0.4;
+  rotLat  = Math.max(-60, Math.min(60, rotLat));
+  lastX = e.clientX; lastY = e.clientY;
+});
+window.addEventListener('mouseup', () => { dragging = false; canvas.style.cursor = 'grab'; });
+
+// Touch drag
+canvas.addEventListener('touchstart', e => {
+  autoSpin = false;
+  lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+},{passive:true});
+canvas.addEventListener('touchmove', e => {
+  rotLng += (e.touches[0].clientX - lastX) * 0.4;
+  rotLat -= (e.touches[0].clientY - lastY) * 0.4;
+  rotLat  = Math.max(-60, Math.min(60, rotLat));
+  lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+},{passive:true});
+
+// ── Hover on canvas ──
+canvas.addEventListener('mousemove', e => {
+  if(dragging || !worldData) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  const my = (e.clientY - rect.top)  * (H / rect.height);
+  const proj = getProjection();
+  let found = null;
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+    if(Math.hypot(pos[0]-mx, pos[1]-my) < 22) found = id;
+  });
+  hoveredId = found;
+  canvas.style.cursor = found ? 'pointer' : dragging ? 'grabbing' : 'grab';
+  // sync cards
+  document.querySelectorAll('.g-card').forEach(c => {
+    c.style.borderColor = c.dataset.id === hoveredId ? 'rgba(201,168,76,0.35)' : '';
+  });
+});
+canvas.addEventListener('mouseleave', () => { hoveredId = null; });
+
+// ── Click on canvas ──
+canvas.addEventListener('click', e => {
+  if(!worldData) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  const my = (e.clientY - rect.top)  * (H / rect.height);
+  const proj = getProjection();
+  let hit = null;
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+    if(Math.hypot(pos[0]-mx, pos[1]-my) < 22) hit = id;
+  });
+  if(hit) setActive(hit === activeId ? null : hit);
+});
+
+// ── Card clicks ──
+document.querySelectorAll('.g-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.id;
+    setActive(id === activeId ? null : id);
+    // Rotate globe to region
+    if(id !== activeId){
+      const r = REGIONS[id];
+      rotLng = -r.lng + 20;
+      rotLat =  r.lat * 0.6;
+    }
+  });
+  card.addEventListener('mouseenter', () => { hoveredId = card.dataset.id; });
+  card.addEventListener('mouseleave', () => { hoveredId = null; });
+});
+
+function setActive(id){
+  activeId = id;
+  // Cards
+  document.querySelectorAll('.g-card').forEach(c => {
+    c.classList.toggle('g-active', c.dataset.id === id);
+  });
+  // Info box
+  const info    = document.getElementById('globe-info');
+  const empty   = document.getElementById('globe-info-empty');
+  const content = document.getElementById('globe-info-content');
+  if(id && REGIONS[id]){
+    const r = REGIONS[id];
+    document.getElementById('globe-info-flag').textContent = r.flag;
+    document.getElementById('globe-info-name').textContent = r.name;
+    document.getElementById('globe-info-tag').textContent  = r.tag;
+    document.getElementById('globe-info-desc').textContent = r.desc;
+    empty.style.display   = 'none';
+    content.style.display = 'block';
+    info.classList.add('lit');
+  } else {
+    empty.style.display   = 'block';
+    content.style.display = 'none';
+    info.classList.remove('lit');
+  }
+}
+
+})();
+</script>
+</section>
+
+<!-- EVERYTHING HANDLED -->
+<section id="handled" style="background:var(--navy)">
+<style>
+#handled .mxw{max-width:1200px;margin:0 auto}
+.handled-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.handled-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:100px;padding:.4rem 1rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.handled-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.h-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.8rem;transition:all .3s;position:relative;overflow:hidden}
+.h-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-dk));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.h-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-4px)}
+.h-card:hover::before{transform:scaleX(1)}
+.h-ico{width:44px;height:44px;background:rgba(201,168,76,.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--gold)}
+.h-card h3{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:.6rem}
+.h-card p{font-size:.84rem;line-height:1.72;color:rgba(255,255,255,.55)}
+.handled-highlight{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:2rem;margin-top:1.2rem;display:flex;align-items:center;gap:1.5rem}
+.hh-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;min-width:80px}
+.hh-text h4{font-size:1rem;font-weight:600;margin-bottom:.3rem}
+.hh-text p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6}
+@media(max-width:860px){.handled-top{grid-template-columns:1fr;gap:2rem}.handled-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.handled-grid{grid-template-columns:1fr}}
+</style>
+  <div class="mxw">
+    <div class="handled-top">
+      <div>
+        <div class="handled-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Everything Handled
+        </div>
+        <h2 class="s-title">What's Included<br/>In Our Service</h2>
+        <div class="bar"></div>
+        <div class="handled-highlight">
+          <span class="hh-num">30</span>
+          <div class="hh-text">
+            <h4>Days vs. 6–12 Months On Your Own</h4>
+            <p>What takes most people half a year to figure out alone, we complete in 30 days — so you can focus on building your business, not fighting paperwork.</p>
+          </div>
+        </div>
+      </div>
+      <p class="s-desc">Every step of the dealer licensing process is fully managed on your behalf. From business formation to your first auction bid — we handle it all so you don't have to navigate it alone.</p>
+    </div>
+    <div class="handled-grid">
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Compliant Office Address</h3>
+        <p>A legal business address that satisfies state DMV requirements — maintained on your behalf so your dealership stays fully compliant from day one.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>LLC / Corp Formation</h3>
+        <p>We form your LLC or corporation in the appropriate state, giving your dealership a proper legal structure and professional identity from the very start.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>State Applications &amp; Zoning</h3>
+        <p>Every form, attachment, and zoning requirement your state demands — prepared and filed by our specialists. Nothing slips through the cracks.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>FEIN Paperwork</h3>
+        <p>We handle your Federal Employer Identification Number filing — the tax ID you need for licensing, banking, and operating your dealership legally.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Background Check &amp; Seminar</h3>
+        <p>We register you for your required background check at an approved GAPS site and your 4-hour pre-license seminar. You show up — we handle the rest.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Dedicated Specialist</h3>
+        <p>A real person you can call — from the moment you start to the day your license is in your hands. One point of contact, zero confusion, full support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUCTION PARTNERS / RESOURCES -->
+<section id="partners">
+  <div class="mxw">
+    <div style="text-align:center">
+      <p class="s-label">Industry Resources</p>
+      <h2 class="s-title">Trusted Partners &amp; Tools<br/>for Your Dealership</h2>
+      <p class="s-desc" style="margin:0 auto">As a licensed dealer, you gain access to the industry's leading platforms for financing, vehicle history, transport, and more.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="p-tile"><h4>Manheim</h4><p>North America's largest wholesale auto auction network</p></div>
+      <div class="p-tile"><h4>ADESA Auctions</h4><p>Nationwide dealer auctions with physical & digital access</p></div>
+      <div class="p-tile"><h4>Copart</h4><p>Online salvage & clean title vehicle auctions for dealers</p></div>
+      <div class="p-tile"><h4>AutoCheck / Experian</h4><p>Vehicle history reports for confident purchasing decisions</p></div>
+      <div class="p-tile"><h4>Westlake Financial</h4><p>Dealer financing solutions and customer loan programs</p></div>
+      <div class="p-tile"><h4>Automotive Finance Corp</h4><p>Floorplan financing to fund your dealership inventory</p></div>
+      <div class="p-tile"><h4>SBA Resources</h4><p>Small business administration tools for dealer entrepreneurs</p></div>
+      <div class="p-tile"><h4>Shiply Transport</h4><p>Nationwide vehicle transport and shipping for dealers</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="mxw">
+    <div style="text-align:center;margin-bottom:.5rem">
+      <p class="s-label">Client Stories</p>
+      <h2 class="s-title">Real People. Real Dealerships.</h2>
+    </div>
+    <div class="test-grid">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"I had no idea how complicated getting a dealer license could be — until they made it simple. Everything was handled for me. I was licensed and buying from auction within the month."</p>
+        <div class="t-author">J. Williams<small>Williams Auto Group, LLC</small></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"From our first call to holding my dealer plates, I never felt lost. They walked me through every step and I didn't have to chase down a single document on my own."</p>
+        <div class="t-author">M. Carter<small>Carter Motor Sales, Corp</small></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p>"I've been in the car business for years as a hobbyist. Getting licensed opened up auction access I didn't know existed. The ROI paid for itself on the very first vehicle I purchased."</p>
+        <div class="t-author">R. Thompson<small>Thompson Premier Autos, LLC</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem">
+      <p class="s-label">Common Questions</p>
+      <h2 class="s-title">We Love Questions.<br/>Here Are the Common Ones.</h2>
+    </div>
+    <div class="faq-wrap">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>In what states will my dealer license be valid?</span>
+          <svg class="faq-ico" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">You'll be able to access dealer-only auctions across the USA, Canada, Mexico, and Europe. You'll be able to retail or wholesale vehicles to anyone in the USA and export vehicles across the globe — giving you one of the most flexible and powerful dealership setups in the industry.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>How long does the entire business and license setup process take?</span>
+          <svg class="faq-ico" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Typically, we are able to complete your new business and dealer license setup within 30 days, start to finish. We have seen completed licenses come back in as few as 21 days. There are a number of variables involved — certain steps such as the pre-license seminar and background check require client completion, but we register you for both. Speed of licensure depends on how quickly those activities are completed.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Will a criminal conviction prevent me from getting licensed?</span>
+          <svg class="faq-ico" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">A criminal conviction does not automatically prevent dealer licensure. State licensing authorities consider the nature of the conviction and whether it relates to business honesty or trustworthiness. Violations and most convictions older than 7 years — especially misdemeanors — will generally not result in denial. However, state regulatory agencies maintain final review and approval authority and assess each application individually. Contact us to discuss your specific situation.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>Is it legal to use dealer plates for personal driving?</span>
+          <svg class="faq-ico" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">According to the Department of Revenue, Motor Vehicle Division, dealer plates may be used for personal use by owners, officers, or employees of the business on vehicles owned by the business. Employees are defined as persons working for the business at least 36 hours per week. Regulations may vary by state — we'll walk you through the specifics that apply to your license.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          <span>What are the next steps to get started?</span>
+          <svg class="faq-ico" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Getting started with Dealer Licensing Authority is straightforward. Simply reach out to us directly by phone — our team will connect you with a specialist who will guide you through the process from day one. Once you're on board, our licensing consultants begin immediately on setting up your business and managing your dealer license application from start to finish.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section id="start">
+  <div class="start-wrap">
+    <div>
+      <p class="s-label">Get Started</p>
+      <h2 class="s-title">Are You Ready to Own<br/>Your Dealership?</h2>
+      <div class="bar"></div>
+      <p class="s-desc">With over 10 years in the auto industry, we've helped clients across the country establish fully licensed dealerships. Here's everything included when you work with us:</p>
+      <ul class="chk-list">
+        <li>
+          <div class="chk-dot"><svg width="11" height="11" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Background check at an approved GAPS site — we register and coordinate everything
+        </li>
+        <li>
+          <div class="chk-dot"><svg width="11" height="11" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Board of Used Car Dealers license application — fully prepared and submitted by our team
+        </li>
+        <li>
+          <div class="chk-dot"><svg width="11" height="11" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Department of Revenue dealer plates application — handled on your behalf
+        </li>
+        <li>
+          <div class="chk-dot"><svg width="11" height="11" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Wholesale auction access across the USA, Mexico, Canada &amp; Europe
+        </li>
+        <li>
+          <div class="chk-dot"><svg width="11" height="11" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Optional ongoing administrative services available to keep your dealership fully compliant
+        </li>
+      </ul>
+    </div>
+    <div class="cta-box">
+      <h3>Let's Get You Licensed.</h3>
+      <p>Speak with our team today. We'll answer every question, walk you through exactly what's involved, and get your dealership journey started — without any pressure or obligation.</p>
+      <a href="tel:+10000000000" class="phone-row">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.58 4.47 2 2 0 0 1 3.55 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.25z"/></svg>
+        <div>
+          <span class="phone-lbl">Call Us Directly</span>
+          <span class="phone-num">877-382-7860</span>
+        </div>
+      </a>
+      <a href="#faq" class="btn-o" style="width:100%;justify-content:center;margin-bottom:1rem">Read Our FAQs First</a>
+      <p class="note">No obligations. Free consultation. Licensed in as little as 30 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="logo">
+        <div class="logo-badge">DLA</div>
+        <div class="logo-name">Dealer Licensing Authority<small>Your License. Your Business.</small></div>
+      </div>
+      <p>We help entrepreneurs across the country build fully independent, licensed auto dealerships — handling every step of the process so you can focus on growing your business from day one.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#advantage">Dealer License Setup</a></li>
+        <li><a href="#benefits">Auction Access</a></li>
+        <li><a href="#benefits">Floorplan Financing</a></li>
+        <li><a href="#benefits">Vehicle Tagging</a></li>
+        <li><a href="#benefits">Auto Loan Arrangements</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+10000000000">📞 877-382-7860</a></li>
+        <li><a href="#start">Inquire Now</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 <span>Dealer Licensing Authority</span>. All rights reserved.</span>
+    <span>USA · Canada · Mexico · Europe</span>
+  </div>
+</footer>
+
+<script>
+function playVideo(){
+  document.getElementById('vidBox').innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';
+}
+function toggleFaq(el){
+  const open=el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)el.classList.add('open');
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:.1});
+document.querySelectorAll('.adv-card,.how-card,.ben-row,.a-card,.p-tile,.t-card,.faq-item,.chk-list li').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(18px)';
+  el.style.transition='opacity .5s ease,transform .5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

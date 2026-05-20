@@ -17,9 +17,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5%;background:rgba(10,22,40,0.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,0.18);transition:all .3s}
-.logo{display:flex;align-items:center}
-.logo img{filter:brightness(1.05);transition:opacity .2s}
-.logo img:hover{opacity:.88}
+.logo{display:flex;align-items:center;gap:11px}
+.logo-badge{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:var(--navy);letter-spacing:-.5px}
+.logo-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;line-height:1.2;color:var(--white)}
+.logo-name small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
 .nav-links{display:flex;list-style:none;gap:2.2rem;align-items:center}
 .nav-links a{text-decoration:none;color:rgba(255,255,255,.72);font-size:.85rem;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
@@ -30,8 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 /* HERO */
 #hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5%;overflow:hidden}
 .hero-bg{position:absolute;inset:0;
-  background:linear-gradient(120deg,rgba(10,22,40,.97) 0%,rgba(17,32,56,.9) 55%,rgba(10,22,40,.95) 100%),
-  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80') center/cover no-repeat}
+  background:linear-gradient(120deg,rgba(10,22,40,.82) 0%,rgba(17,32,56,.55) 45%,rgba(10,22,40,.75) 100%),
+  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80') center 60%/cover no-repeat}
 .hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 60% at 72% 50%,rgba(201,168,76,.07) 0%,transparent 70%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:56px 56px}
 .hero-inner{position:relative;z-index:2;max-width:680px}
@@ -88,7 +89,8 @@ section{padding:5.5rem 5%}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
 .how-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.065);border-radius:16px;padding:1.9rem;transition:all .3s;overflow:hidden;position:relative}
 .how-card:hover{border-color:rgba(201,168,76,.2);transform:translateY(-3px)}
-.how-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;margin-bottom:.8rem}
+.how-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:rgba(201,168,76,.1);line-height:1;margin-bottom:.8rem;transition:color .3s,text-shadow .3s}
+.how-card:hover .how-n{color:rgba(201,168,76,1);text-shadow:0 0 32px rgba(201,168,76,.7),0 0 8px rgba(201,168,76,.5)}
 .how-ico{width:44px;height:44px;background:rgba(201,168,76,.09);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--gold)}
 .how-card h3{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;margin-bottom:.65rem}
 .how-card p{font-size:.85rem;line-height:1.72;color:rgba(255,255,255,.57)}
@@ -201,7 +203,7 @@ footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,1
 <!-- NAV -->
 <nav>
   <div class="logo">
-<img src="logo.png" alt="Dealer Licensing Authority" style="height:48px;width:auto;display:block">
+    <img src="logo.png" alt="Dealer Licensing Authority" style="height:60px;width:auto;display:block;object-fit:contain">
   </div>
   <ul class="nav-links">
     <li><a href="#advantage">Our Advantage</a></li>
@@ -385,85 +387,502 @@ footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,1
   </div>
 </section>
 
-<!-- USA MAP + AUCTIONS -->
-<section id="auctions">
-  <div class="mxw">
-    <div class="map-wrap">
-      <p class="s-label">Nationwide Access</p>
-      <h2 class="s-title">Beyond Borders.<br/>Your License Works Everywhere.</h2>
-      <p class="s-desc" style="margin:0 auto 2.5rem;text-align:center">Retail or wholesale to any buyer in the United States. Export vehicles across the globe. And access dealer-only auctions in four major international markets — all under one license.</p>
+<!-- GLOBE + AUCTIONS -->
+<section id="auctions" style="background:var(--navy-m)">
+<style>
+#globe-section-inner{max-width:1200px;margin:0 auto}
+#globe-header{text-align:center;margin-bottom:3rem}
+#globe-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+#globe-canvas-wrap{display:flex;flex-direction:column;align-items:center;gap:.75rem;position:relative}
+#globeCanvas{cursor:grab;display:block;border-radius:50%}
+#globe-drag-hint{font-size:.7rem;color:rgba(255,255,255,.28);letter-spacing:.06em}
+#globe-right{display:flex;flex-direction:column;gap:.9rem}
+#globe-info{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:1.4rem 1.6rem;min-height:110px;display:flex;flex-direction:column;justify-content:center;transition:border-color .3s}
+#globe-info.lit{border-color:rgba(201,168,76,.42)}
+#globe-info-top{display:flex;align-items:center;gap:1rem;margin-bottom:.7rem}
+#globe-info-flag{font-size:2.2rem;line-height:1}
+#globe-info-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;color:#fff;margin:0 0 .25rem}
+#globe-info-tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#C9A84C;border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:.18rem .65rem;display:inline-block}
+#globe-info-desc{font-size:.86rem;line-height:1.75;color:rgba(255,255,255,.58);margin:0}
+#globe-info-empty{font-size:.83rem;color:rgba(255,255,255,.28);font-style:italic;margin:0;text-align:center}
+#globe-cards{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.g-card{display:flex;align-items:center;gap:.65rem;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.07);border-radius:12px;cursor:pointer;transition:all .22s;background:rgba(255,255,255,.03);user-select:none}
+.g-card:hover{border-color:rgba(201,168,76,.28);background:rgba(201,168,76,.04)}
+.g-card.g-active{border-color:rgba(201,168,76,.55);background:rgba(201,168,76,.09)}
+.g-card-flag{font-size:1.4rem;line-height:1}
+.g-card-body{flex:1;display:flex;flex-direction:column;gap:.15rem}
+.g-card-name{font-size:.83rem;font-weight:600;color:#fff;transition:color .22s}
+.g-card.g-active .g-card-name{color:#C9A84C}
+.g-card-sub{font-size:.6rem;color:rgba(255,255,255,.38);letter-spacing:.05em}
+.g-card-arrow{color:#C9A84C;font-size:1.1rem;line-height:1;transition:transform .22s}
+.g-card.g-active .g-card-arrow{transform:rotate(90deg)}
+@media(max-width:860px){#globe-layout{grid-template-columns:1fr}#globe-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){#globe-cards{grid-template-columns:1fr}}
+</style>
 
-      <!-- SVG USA Map -->
-      <div class="usa-map-container">
-        <div class="usa-svg-wrap">
-          <svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.15"/>
-                <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="960" height="600" fill="none"/>
-            <!-- Continental USA simplified shape -->
-            <g fill="rgba(201,168,76,0.12)" stroke="rgba(201,168,76,0.5)" stroke-width="1.2">
-              <!-- Main continental US -->
-              <path d="M150,120 L180,110 L220,105 L280,100 L350,95 L420,90 L500,88 L580,85 L650,88 L720,92 L780,98 L830,105 L870,115 L890,130 L895,150 L885,175 L870,200 L855,230 L840,260 L830,290 L815,315 L800,335 L785,350 L760,360 L730,368 L700,372 L660,375 L620,378 L580,380 L540,380 L500,378 L460,375 L415,370 L370,362 L330,352 L295,342 L265,330 L240,318 L220,305 L200,290 L182,272 L165,252 L152,232 L142,210 L138,188 L140,165 L145,142 Z" opacity="0.8"/>
-              <!-- Florida peninsula -->
-              <path d="M650,378 L655,395 L658,415 L655,438 L648,458 L638,472 L625,480 L612,478 L600,468 L590,452 L585,435 L588,415 L595,398 L610,385 L630,380 Z" opacity="0.8"/>
-              <!-- Alaska (small inset) -->
-              <path d="M80,430 L95,420 L115,418 L135,422 L150,432 L155,448 L148,462 L132,470 L112,472 L95,465 L82,452 Z" opacity="0.6"/>
-              <!-- Hawaii (small inset) -->
-              <path d="M200,490 L215,485 L225,488 L228,498 L220,505 L208,504 L200,498 Z" opacity="0.6"/>
-              <ellipse cx="230" cy="495" rx="8" ry="5" opacity="0.5"/>
-              <ellipse cx="245" cy="500" rx="6" ry="4" opacity="0.5"/>
-            </g>
-            <!-- Glow overlay -->
-            <ellipse cx="500" cy="260" rx="380" ry="200" fill="url(#mapGlow)"/>
-            <!-- State dots -->
-            <g fill="#C9A84C" opacity="0.7">
-              <circle cx="320" cy="200" r="5"/><circle cx="400" cy="180" r="5"/>
-              <circle cx="480" cy="165" r="5"/><circle cx="560" cy="170" r="5"/>
-              <circle cx="640" cy="180" r="5"/><circle cx="720" cy="195" r="5"/>
-              <circle cx="790" cy="215" r="5"/><circle cx="350" cy="270" r="5"/>
-              <circle cx="430" cy="260" r="5"/><circle cx="510" cy="250" r="5"/>
-              <circle cx="590" cy="255" r="5"/><circle cx="670" cy="265" r="5"/>
-              <circle cx="745" cy="280" r="5"/><circle cx="390" cy="330" r="5"/>
-              <circle cx="470" cy="320" r="5"/><circle cx="550" cy="315" r="5"/>
-              <circle cx="630" cy="320" r="5"/><circle cx="700" cy="335" r="5"/>
-            </g>
-            <!-- Center label -->
-            <text x="480" y="248" text-anchor="middle" font-family="Playfair Display, serif" font-size="18" fill="#C9A84C" font-weight="700" opacity="0.9">NATIONWIDE ACCESS</text>
-            <text x="480" y="270" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" letter-spacing="2">RETAIL · WHOLESALE · EXPORT</text>
-          </svg>
+<div id="globe-section-inner">
+  <div id="globe-header">
+    <p class="s-label">Auction Access</p>
+    <h2 class="s-title" style="text-align:center">Beyond Borders.<br/><em style="font-style:normal;color:var(--gold)">Your License Works Everywhere.</em></h2>
+    <p class="s-desc" style="text-align:center;margin:0 auto">Retail or wholesale to any buyer in the United States. Export vehicles across the globe. Access dealer-only auctions in four major international markets — all under one license.</p>
+  </div>
+
+  <div id="globe-layout">
+    <!-- Globe -->
+    <div id="globe-canvas-wrap">
+      <canvas id="globeCanvas" width="480" height="480"></canvas>
+      <span id="globe-drag-hint">Drag to rotate · Click a marker to explore</span>
+    </div>
+
+    <!-- Right panel -->
+    <div id="globe-right">
+      <!-- Info box -->
+      <div id="globe-info">
+        <p id="globe-info-empty">← Click a glowing marker on the globe to explore a region</p>
+        <div id="globe-info-content" style="display:none">
+          <div id="globe-info-top">
+            <span id="globe-info-flag"></span>
+            <div>
+              <h3 id="globe-info-name"></h3>
+              <span id="globe-info-tag"></span>
+            </div>
+          </div>
+          <p id="globe-info-desc"></p>
+        </div>
+      </div>
+
+      <!-- Region cards -->
+      <div id="globe-cards">
+        <div class="g-card" data-id="usa">
+          <span class="g-card-flag">🇺🇸</span>
+          <div class="g-card-body"><span class="g-card-name">United States</span><span class="g-card-sub">Primary Market</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="canada">
+          <span class="g-card-flag">🇨🇦</span>
+          <div class="g-card-body"><span class="g-card-name">Canada</span><span class="g-card-sub">North American Network</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="mexico">
+          <span class="g-card-flag">🇲🇽</span>
+          <div class="g-card-body"><span class="g-card-name">Mexico</span><span class="g-card-sub">Cross-Border Access</span></div>
+          <span class="g-card-arrow">›</span>
+        </div>
+        <div class="g-card" data-id="europe">
+          <span class="g-card-flag">🇪🇺</span>
+          <div class="g-card-body"><span class="g-card-name">Europe</span><span class="g-card-sub">International Access</span></div>
+          <span class="g-card-arrow">›</span>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Auction markets -->
-    <div class="auction-logos">
-      <div class="a-card">
-        <span class="a-flag">🇺🇸</span>
-        <h3>United States</h3>
-        <p>The largest dealer-only auction network in the country — thousands of vehicles available every week at wholesale prices.</p>
-        <span class="a-tag">Primary Market</span>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(function(){
+const REGIONS = {
+  usa:    { flag:'🇺🇸', name:'United States',  tag:'Primary Market',         desc:'The largest dealer-only auction network in the country — thousands of vehicles available every week at wholesale prices.',                               lat:38,  lng:-97  },
+  canada: { flag:'🇨🇦', name:'Canada',          tag:'North American Network', desc:'Access Canadian wholesale auctions for additional inventory diversity, seasonal vehicles, and cross-border pricing advantages.',                            lat:56,  lng:-96  },
+  mexico: { flag:'🇲🇽', name:'Mexico',          tag:'Cross-Border Access',    desc:'Source quality inventory from one of the most active used-vehicle markets in the hemisphere at competitive wholesale rates.',                               lat:23,  lng:-102 },
+  europe: { flag:'🇪🇺', name:'Europe',          tag:'International Access',   desc:'Import premium, luxury, and specialty vehicles from European wholesale auctions — exclusively available to licensed dealers.',                              lat:50,  lng:10   }
+};
+
+const HIGHLIGHT_COUNTRIES = {
+  usa:    ['840'],
+  canada: ['124'],
+  mexico: ['484'],
+  europe: ['276','250','380','724','826','528','756','40','56','752','578','208','246','372','620','703','705','191','348','300','203']
+};
+
+const canvas = document.getElementById('globeCanvas');
+const ctx    = canvas.getContext('2d');
+let W = canvas.width, H = canvas.height;
+let rotLng = -60, rotLat = 15;
+let dragging = false, lastX = 0, lastY = 0;
+let autoSpin = true;
+let activeId = null, hoveredId = null;
+let worldData = null;
+let animT = 0;
+
+// Responsive canvas size
+function resizeCanvas(){
+  const wrap = document.getElementById('globe-canvas-wrap');
+  const size = Math.min(wrap.clientWidth, 520);
+  canvas.width  = size;
+  canvas.height = size;
+  W = H = size;
+  if(worldData) draw();
+}
+
+// Projection
+function getProjection(){
+  return d3.geoOrthographic()
+    .scale((W / 2) * 0.92)
+    .translate([W/2, H/2])
+    .clipAngle(90)
+    .rotate([-rotLng, -rotLat, 0]);
+}
+
+// Find which region a country numeric ID belongs to
+function getRegionForCountry(numId){
+  for(const [rid, ids] of Object.entries(HIGHLIGHT_COUNTRIES)){
+    if(ids.includes(String(numId))) return rid;
+  }
+  return null;
+}
+
+function draw(){
+  if(!worldData) return;
+  ctx.clearRect(0,0,W,H);
+
+  const proj = getProjection();
+  const path = d3.geoPath().projection(proj).context(ctx);
+  const countries = topojson.feature(worldData, worldData.objects.countries);
+
+  // ── Outer atmosphere glow ──
+  const grad = ctx.createRadialGradient(W/2,H/2,W*0.42,W/2,H/2,W*0.54);
+  grad.addColorStop(0,'rgba(34,80,180,0.18)');
+  grad.addColorStop(1,'rgba(10,22,40,0)');
+  ctx.beginPath(); ctx.arc(W/2,H/2,W*0.54,0,Math.PI*2);
+  ctx.fillStyle=grad; ctx.fill();
+
+  // ── Ocean ──
+  ctx.beginPath();
+  path({type:'Sphere'});
+  const ocean = ctx.createRadialGradient(W*0.42,H*0.36,0,W/2,H/2,W*0.46);
+  ocean.addColorStop(0,'#0e2144');
+  ocean.addColorStop(1,'#071020');
+  ctx.fillStyle = ocean;
+  ctx.fill();
+
+  // ── Graticule (grid lines) ──
+  const grat = d3.geoGraticule()();
+  ctx.beginPath(); path(grat);
+  ctx.strokeStyle = 'rgba(201,168,76,0.07)';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // ── Countries ──
+  countries.features.forEach(feature => {
+    const numId = feature.id ? String(feature.id) : '';
+    const regionId = getRegionForCountry(numId);
+    const isActive  = regionId && activeId  === regionId;
+    const isHovered = regionId && hoveredId === regionId;
+    const isHighlight = regionId !== null;
+
+    ctx.beginPath(); path(feature);
+
+    if(isActive){
+      ctx.fillStyle   = 'rgba(201,168,76,0.85)';
+      ctx.strokeStyle = 'rgba(255,220,120,0.9)';
+      ctx.lineWidth   = 0.8;
+    } else if(isHovered){
+      ctx.fillStyle   = 'rgba(201,168,76,0.55)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.7)';
+      ctx.lineWidth   = 0.6;
+    } else if(isHighlight){
+      ctx.fillStyle   = 'rgba(201,168,76,0.22)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.4)';
+      ctx.lineWidth   = 0.5;
+    } else {
+      ctx.fillStyle   = 'rgba(30,58,100,0.85)';
+      ctx.strokeStyle = 'rgba(201,168,76,0.12)';
+      ctx.lineWidth   = 0.3;
+    }
+    ctx.fill();
+    ctx.stroke();
+  });
+
+  // ── Globe border ──
+  ctx.beginPath(); path({type:'Sphere'});
+  ctx.strokeStyle = 'rgba(201,168,76,0.28)';
+  ctx.lineWidth   = 1.2;
+  ctx.stroke();
+
+  // ── Markers ──
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+
+    // Check if point is on visible side
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+
+    const isAct = activeId  === id;
+    const isHov = hoveredId === id;
+    const hi    = isAct || isHov;
+
+    // Outer pulse ring
+    const pulse = hi ? 18 + Math.sin(animT * 2)*5 : 12 + Math.sin(animT * 1.5 + Object.keys(REGIONS).indexOf(id))*3;
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], pulse, 0, Math.PI*2);
+    ctx.strokeStyle = hi ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.2)';
+    ctx.lineWidth = hi ? 1.5 : 1;
+    ctx.stroke();
+
+    // Inner ring
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], pulse * 0.6, 0, Math.PI*2);
+    ctx.strokeStyle = hi ? 'rgba(255,220,120,0.35)' : 'rgba(201,168,76,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Dot
+    ctx.beginPath();
+    ctx.arc(pos[0], pos[1], hi ? 7 : 5, 0, Math.PI*2);
+    ctx.fillStyle = hi ? '#FFD966' : '#C9A84C';
+    if(hi){
+      ctx.shadowColor = '#FFD966';
+      ctx.shadowBlur  = 14;
+    }
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Label
+    ctx.font = `${hi ? 600 : 500} ${hi ? 12 : 11}px 'DM Sans', sans-serif`;
+    ctx.fillStyle    = hi ? '#FFD966' : 'rgba(201,168,76,0.85)';
+    ctx.textAlign    = 'center';
+    ctx.textBaseline = 'bottom';
+    // Background pill for label
+    const label = r.name;
+    const tw    = ctx.measureText(label).width;
+    const lx    = pos[0], ly = pos[1] - (hi ? 12 : 10);
+    ctx.fillStyle = 'rgba(10,22,40,0.7)';
+    ctx.beginPath();
+    ctx.roundRect(lx - tw/2 - 5, ly - 14, tw + 10, 16, 4);
+    ctx.fill();
+    ctx.fillStyle = hi ? '#FFD966' : '#C9A84C';
+    ctx.fillText(label, lx, ly);
+    ctx.textBaseline = 'alphabetic';
+  });
+
+  // ── Specular shine ──
+  const shine = ctx.createRadialGradient(W*0.38, H*0.3, 0, W*0.38, H*0.3, W*0.38);
+  shine.addColorStop(0, 'rgba(255,255,255,0.06)');
+  shine.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.beginPath(); path({type:'Sphere'});
+  ctx.fillStyle = shine;
+  ctx.fill();
+}
+
+// ── Animation loop ──
+function loop(){
+  animT += 0.025;
+  if(autoSpin){ rotLng += 0.18; if(rotLng>180) rotLng-=360; }
+  draw();
+  requestAnimationFrame(loop);
+}
+
+// ── Load world data ──
+fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+  .then(r => r.json())
+  .then(data => {
+    worldData = data;
+    resizeCanvas();
+    loop();
+  });
+
+window.addEventListener('resize', resizeCanvas);
+
+// ── Drag ──
+canvas.addEventListener('mousedown', e => {
+  dragging = true; autoSpin = false;
+  lastX = e.clientX; lastY = e.clientY;
+  canvas.style.cursor = 'grabbing';
+});
+window.addEventListener('mousemove', e => {
+  if(!dragging) return;
+  rotLng += (e.clientX - lastX) * 0.4;
+  rotLat -= (e.clientY - lastY) * 0.4;
+  rotLat  = Math.max(-60, Math.min(60, rotLat));
+  lastX = e.clientX; lastY = e.clientY;
+});
+window.addEventListener('mouseup', () => { dragging = false; canvas.style.cursor = 'grab'; });
+
+// Touch drag
+canvas.addEventListener('touchstart', e => {
+  autoSpin = false;
+  lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+},{passive:true});
+canvas.addEventListener('touchmove', e => {
+  rotLng += (e.touches[0].clientX - lastX) * 0.4;
+  rotLat -= (e.touches[0].clientY - lastY) * 0.4;
+  rotLat  = Math.max(-60, Math.min(60, rotLat));
+  lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+},{passive:true});
+
+// ── Hover on canvas ──
+canvas.addEventListener('mousemove', e => {
+  if(dragging || !worldData) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  const my = (e.clientY - rect.top)  * (H / rect.height);
+  const proj = getProjection();
+  let found = null;
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+    if(Math.hypot(pos[0]-mx, pos[1]-my) < 22) found = id;
+  });
+  hoveredId = found;
+  canvas.style.cursor = found ? 'pointer' : dragging ? 'grabbing' : 'grab';
+  // sync cards
+  document.querySelectorAll('.g-card').forEach(c => {
+    c.style.borderColor = c.dataset.id === hoveredId ? 'rgba(201,168,76,0.35)' : '';
+  });
+});
+canvas.addEventListener('mouseleave', () => { hoveredId = null; });
+
+// ── Click on canvas ──
+canvas.addEventListener('click', e => {
+  if(!worldData) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * (W / rect.width);
+  const my = (e.clientY - rect.top)  * (H / rect.height);
+  const proj = getProjection();
+  let hit = null;
+  Object.entries(REGIONS).forEach(([id, r]) => {
+    const pos = proj([r.lng, r.lat]);
+    if(!pos) return;
+    const dist = d3.geoDistance([r.lng, r.lat], [-rotLng, -rotLat]);
+    if(dist > Math.PI/2) return;
+    if(Math.hypot(pos[0]-mx, pos[1]-my) < 22) hit = id;
+  });
+  if(hit) setActive(hit === activeId ? null : hit);
+});
+
+// ── Card clicks ──
+document.querySelectorAll('.g-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.id;
+    setActive(id === activeId ? null : id);
+    // Rotate globe to region
+    if(id !== activeId){
+      const r = REGIONS[id];
+      rotLng = -r.lng + 20;
+      rotLat =  r.lat * 0.6;
+    }
+  });
+  card.addEventListener('mouseenter', () => { hoveredId = card.dataset.id; });
+  card.addEventListener('mouseleave', () => { hoveredId = null; });
+});
+
+function setActive(id){
+  activeId = id;
+  // Cards
+  document.querySelectorAll('.g-card').forEach(c => {
+    c.classList.toggle('g-active', c.dataset.id === id);
+  });
+  // Info box
+  const info    = document.getElementById('globe-info');
+  const empty   = document.getElementById('globe-info-empty');
+  const content = document.getElementById('globe-info-content');
+  if(id && REGIONS[id]){
+    const r = REGIONS[id];
+    document.getElementById('globe-info-flag').textContent = r.flag;
+    document.getElementById('globe-info-name').textContent = r.name;
+    document.getElementById('globe-info-tag').textContent  = r.tag;
+    document.getElementById('globe-info-desc').textContent = r.desc;
+    empty.style.display   = 'none';
+    content.style.display = 'block';
+    info.classList.add('lit');
+  } else {
+    empty.style.display   = 'block';
+    content.style.display = 'none';
+    info.classList.remove('lit');
+  }
+}
+
+})();
+</script>
+</section>
+
+<!-- EVERYTHING HANDLED -->
+<section id="handled" style="background:var(--navy)">
+<style>
+#handled .mxw{max-width:1200px;margin:0 auto}
+.handled-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.handled-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);border-radius:100px;padding:.4rem 1rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.handled-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.h-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.8rem;transition:all .3s;position:relative;overflow:hidden}
+.h-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-dk));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.h-card:hover{border-color:rgba(201,168,76,.22);transform:translateY(-4px)}
+.h-card:hover::before{transform:scaleX(1)}
+.h-ico{width:44px;height:44px;background:rgba(201,168,76,.1);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;color:var(--gold)}
+.h-card h3{font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:700;margin-bottom:.6rem}
+.h-card p{font-size:.84rem;line-height:1.72;color:rgba(255,255,255,.55)}
+.handled-highlight{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:2rem;margin-top:1.2rem;display:flex;align-items:center;gap:1.5rem}
+.hh-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;min-width:80px}
+.hh-text h4{font-size:1rem;font-weight:600;margin-bottom:.3rem}
+.hh-text p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6}
+@media(max-width:860px){.handled-top{grid-template-columns:1fr;gap:2rem}.handled-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.handled-grid{grid-template-columns:1fr}}
+</style>
+  <div class="mxw">
+    <div class="handled-top">
+      <div>
+        <div class="handled-badge">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Everything Handled
+        </div>
+        <h2 class="s-title">What's Included<br/>In Our Service</h2>
+        <div class="bar"></div>
+        <div class="handled-highlight">
+          <span class="hh-num">30</span>
+          <div class="hh-text">
+            <h4>Days vs. 6–12 Months On Your Own</h4>
+            <p>What takes most people half a year to figure out alone, we complete in 30 days — so you can focus on building your business, not fighting paperwork.</p>
+          </div>
+        </div>
       </div>
-      <div class="a-card">
-        <span class="a-flag">🇨🇦</span>
-        <h3>Canada</h3>
-        <p>Access Canadian wholesale auctions for additional inventory diversity, seasonal vehicles, and cross-border pricing advantages.</p>
-        <span class="a-tag">North American Network</span>
+      <p class="s-desc">Every step of the dealer licensing process is fully managed on your behalf. From business formation to your first auction bid — we handle it all so you don't have to navigate it alone.</p>
+    </div>
+    <div class="handled-grid">
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Compliant Office Address</h3>
+        <p>A legal business address that satisfies state DMV requirements — maintained on your behalf so your dealership stays fully compliant from day one.</p>
       </div>
-      <div class="a-card">
-        <span class="a-flag">🇲🇽</span>
-        <h3>Mexico</h3>
-        <p>Source quality inventory from one of the most active used-vehicle markets in the hemisphere at competitive wholesale rates.</p>
-        <span class="a-tag">Cross-Border Access</span>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>LLC / Corp Formation</h3>
+        <p>We form your LLC or corporation in the appropriate state, giving your dealership a proper legal structure and professional identity from the very start.</p>
       </div>
-      <div class="a-card">
-        <span class="a-flag">🇪🇺</span>
-        <h3>Europe</h3>
-        <p>Import premium, luxury, and specialty vehicles from European wholesale auctions — exclusively available to licensed dealers.</p>
-        <span class="a-tag">International Access</span>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h3>State Applications &amp; Zoning</h3>
+        <p>Every form, attachment, and zoning requirement your state demands — prepared and filed by our specialists. Nothing slips through the cracks.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>FEIN Paperwork</h3>
+        <p>We handle your Federal Employer Identification Number filing — the tax ID you need for licensing, banking, and operating your dealership legally.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Background Check &amp; Seminar</h3>
+        <p>We register you for your required background check at an approved GAPS site and your 4-hour pre-license seminar. You show up — we handle the rest.</p>
+      </div>
+      <div class="h-card">
+        <div class="h-ico">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>Dedicated Specialist</h3>
+        <p>A real person you can call — from the moment you start to the day your license is in your hands. One point of contact, zero confusion, full support.</p>
       </div>
     </div>
   </div>
@@ -608,7 +1027,7 @@ footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,1
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.58 4.47 2 2 0 0 1 3.55 2.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.25z"/></svg>
         <div>
           <span class="phone-lbl">Call Us Directly</span>
-          <span class="phone-num">(000) 000-0000</span>
+          <span class="phone-num">877-382-7860</span>
         </div>
       </a>
       <a href="#faq" class="btn-o" style="width:100%;justify-content:center;margin-bottom:1rem">Read Our FAQs First</a>
@@ -622,7 +1041,7 @@ footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,1
   <div class="foot-top">
     <div class="foot-brand">
       <div class="logo">
-<img src="logo.png" alt="Dealer Licensing Authority" style="height:52px;width:auto;display:block;margin-bottom:.5rem">
+        <img src="logo.png" alt="Dealer Licensing Authority" style="height:80px;width:auto;display:block;object-fit:contain">
       </div>
       <p>We help entrepreneurs across the country build fully independent, licensed auto dealerships — handling every step of the process so you can focus on growing your business from day one.</p>
     </div>
@@ -639,7 +1058,7 @@ footer{background:#060E1C;padding:3.8rem 5% 2rem;border-top:1px solid rgba(201,1
     <div class="foot-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:+10000000000">📞 (000) 000-0000</a></li>
+        <li><a href="tel:+18773827860">📞 877-382-7860</a></li>
         <li><a href="#start">Inquire Now</a></li>
         <li><a href="#faq">Frequently Asked Questions</a></li>
       </ul>

@@ -603,12 +603,45 @@ resetProg();
 // VIDEO
 function playVideo(){document.getElementById("vidBox").innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';}
 
-// FORM
-function submitForm(e){
+// FORM — Google Sheets Integration
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbx-qEfuvL8IdM-bJk0-gj7XCx8tpqxQqyeXuF1UCTPl6Lp0VjqcBTWmEo3ZXT9mJNyh/exec";
+
+async function submitForm(e){
   e.preventDefault();
-  const btn=document.querySelector(".submit-btn");
-  btn.innerHTML='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Submitted! We\'ll be in touch shortly.';
-  btn.style.background="#2a7a4b";btn.style.color="#fff";btn.disabled=true;
+  const form = document.getElementById("leadForm");
+  const btn  = document.querySelector(".submit-btn");
+
+  // Show loading state
+  btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/></circle></svg> Sending...';
+  btn.disabled = true;
+
+  const data = {
+    firstName : form.firstName.value,
+    lastName  : form.lastName.value,
+    phone     : form.phone.value,
+    email     : form.email.value,
+    timeline  : form.timeline.value,
+    message   : form.message.value
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method  : "POST",
+      mode    : "no-cors",
+      headers : { "Content-Type": "application/json" },
+      body    : JSON.stringify(data)
+    });
+    // Success
+    btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Submitted! We\'ll be in touch shortly.';
+    btn.style.background = "#2a7a4b";
+    btn.style.color = "#fff";
+    form.reset();
+  } catch(err) {
+    btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Error — please try again';
+    btn.style.background = "#9b2c2c";
+    btn.style.color = "#fff";
+    btn.disabled = false;
+  }
 }
 
 // SCROLL REVEAL

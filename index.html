@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--gold:#C9A84C;--gold-lt:#E8C96A;--gold-dk:#9A7A2E;--navy:#0A1628;--navy-m:#112038;--navy-l:#1C3260;--white:#fff}
+:root{--gold:#C9A84C;--gold-lt:#E8C96A;--gold-dk:#9A7A2E;--navy:#0A1628;--navy-m:#112038;--navy-l:#1C3260;--white:#fff;--nav-h:62px}
 html{scroll-behavior:smooth}
 body{font-family:"DM Sans",sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.7rem 5%;background:rgba(10,22,40,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.18)}
+/* ═══════════════════════════ NAV ═══════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.7rem 5%;background:rgba(10,22,40,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.18);height:var(--nav-h)}
 .logo-combo{display:flex;align-items:center;gap:12px}
 .logo-dla{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:900;font-size:15px;color:var(--navy);letter-spacing:-.5px;flex-shrink:0}
 .logo-sep{width:1px;height:32px;background:rgba(201,168,76,.3)}
@@ -25,8 +24,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-btn:hover{background:var(--gold-lt)!important}
 @media(max-width:860px){.nav-links{display:none}}
 
-/* HERO SLIDESHOW */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5%;overflow:hidden}
+/* ═══════════════════════════ HERO ═══════════════════════════ */
+#hero{
+  position:relative;
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:0;
+  overflow:hidden;
+}
 .hero-slides{position:absolute;inset:0;z-index:0}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;background-size:cover;background-position:center 60%}
 .hero-slide.active{opacity:1}
@@ -35,12 +43,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .slide-2{background-image:url("2.png")}
 .slide-3{background-image:url("3.png")}
 .slide-4{background-image:url("4.png")}
-.slide-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:5}
+.slide-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:5}
 .slide-dot{width:26px;height:3px;border-radius:2px;background:rgba(255,255,255,.25);cursor:pointer;transition:all .3s}
 .slide-dot.active{background:var(--gold);width:42px}
 .slide-progress{position:absolute;top:0;left:0;height:2px;background:var(--gold);z-index:10;width:0;transition:width 4s linear}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:56px 56px;z-index:1}
-.hero-inner{position:relative;z-index:2;max-width:660px}
+
+/* Hero content wrapper — sits above slides */
+.hero-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding: calc(var(--nav-h) + 2rem) 5% 4.5rem;
+  flex:1;
+  justify-content:flex-end;
+}
+
+.hero-inner{max-width:660px}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.28);border-radius:100px;padding:.36rem .95rem;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;animation:fadeUp .7s ease both}
 .hero-pill::before{content:"";width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -49,18 +70,45 @@ h1.hero-h1{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.8vw,3.5re
 .hero-sub{font-size:.95rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,.68);max-width:520px;margin-bottom:1.5rem;animation:fadeUp .7s ease .2s both}
 .hero-bid-badges{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:2rem;animation:fadeUp .7s ease .25s both}
 .hbb{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.28);border-radius:100px;padding:.32rem .85rem;font-size:.75rem;font-weight:500;color:var(--gold)}
-.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;animation:fadeUp .7s ease .3s both}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;animation:fadeUp .7s ease .3s both;margin-bottom:2.5rem}
 .btn-g{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--navy);padding:.82rem 1.8rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;transition:background .2s,transform .15s}
 .btn-g:hover{background:var(--gold-lt);transform:translateY(-2px)}
 .btn-o{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--white);padding:.82rem 1.8rem;border-radius:8px;border:1px solid rgba(255,255,255,.22);font-size:.9rem;text-decoration:none;transition:all .2s}
 .btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-.hero-counters{position:absolute;bottom:3.2rem;right:5%;display:flex;gap:2.5rem;animation:fadeUp .7s ease .4s both;z-index:5}
-.ctr{text-align:center}
-.ctr-n{font-family:"Playfair Display",serif;font-size:1.9rem;font-weight:700;color:var(--gold);display:block}
-.ctr-l{font-size:.68rem;color:rgba(255,255,255,.45);letter-spacing:.09em;text-transform:uppercase}
+
+/* Counters — in normal flow at bottom of hero on ALL screens */
+.hero-counters{
+  display:flex;
+  gap:0;
+  animation:fadeUp .7s ease .4s both;
+  z-index:5;
+  position:relative;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(201,168,76,.18);
+  border-radius:14px;
+  overflow:hidden;
+  max-width:420px;
+}
+.ctr{
+  flex:1;
+  text-align:center;
+  padding:.9rem .5rem;
+  position:relative;
+}
+.ctr:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  right:0;top:50%;
+  transform:translateY(-50%);
+  height:55%;width:1px;
+  background:rgba(201,168,76,.2);
+}
+.ctr-n{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.ctr-l{font-size:.64rem;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;display:block}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-/* SHARED */
+/* ═══════════════════════════ SHARED ═══════════════════════════ */
 section{padding:5rem 5%}
 .s-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.6rem;display:block}
 .s-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
@@ -68,7 +116,7 @@ section{padding:5rem 5%}
 .bar{width:44px;height:2px;background:var(--gold);margin:1.2rem 0}
 .mxw{max-width:1200px;margin:0 auto}
 
-/* VIDEO */
+/* ═══════════════════════════ VIDEO ═══════════════════════════ */
 #video-sec{background:var(--navy-m)}
 .vid-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto}
 .vid-box{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--navy-m);border:1px solid rgba(201,168,76,.18)}
@@ -78,7 +126,7 @@ section{padding:5rem 5%}
 .play-ring svg{margin-left:4px}
 .vid-overlay p{color:rgba(255,255,255,.55);font-size:.8rem}
 
-/* HOW IT WORKS */
+/* ═══════════════════════════ HOW IT WORKS ═══════════════════════════ */
 #how{background:var(--navy)}
 .how-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
@@ -90,7 +138,7 @@ section{padding:5rem 5%}
 .how-card h3{font-family:"Playfair Display",serif;font-size:1.08rem;font-weight:700;margin-bottom:.6rem}
 .how-card p{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.55)}
 
-/* GLOBE */
+/* ═══════════════════════════ GLOBE ═══════════════════════════ */
 #auctions{background:var(--navy-m)}
 #globe-section-inner{max-width:1200px;margin:0 auto}
 #globe-header{text-align:center;margin-bottom:2.5rem}
@@ -119,7 +167,7 @@ section{padding:5rem 5%}
 .g-card-arrow{color:#C9A84C;font-size:1.05rem;line-height:1;transition:transform .22s}
 .g-card.g-active .g-card-arrow{transform:rotate(90deg)}
 
-/* PARTNERS inside globe section */
+/* Partners */
 .partners-strip{margin-top:2.5rem;max-width:1200px;margin-left:auto;margin-right:auto}
 .partners-strip h4{text-align:center;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.2rem}
 .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
@@ -128,88 +176,32 @@ section{padding:5rem 5%}
 .p-tile h5{font-size:.83rem;font-weight:600;margin-bottom:.2rem;color:var(--white)}
 .p-tile p{font-size:.68rem;color:rgba(255,255,255,.38);line-height:1.4}
 
-/* PRICING */
+/* ═══════════════════════════ PRICING ═══════════════════════════ */
 #pricing{background:var(--navy)}
 .pricing-wrap{max-width:900px;margin:0 auto}
 .pricing-header{text-align:center;margin-bottom:2.5rem}
 .pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-
-/* PRICING CARD — box highlight on hover (same style as checklist) */
-.pr-card{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  padding:2.2rem;
-  transition:border-color .25s, background .25s, box-shadow .25s, transform .2s;
-  position:relative;
-  overflow:hidden;
-}
-.pr-card:hover{
-  border-color:rgba(201,168,76,.55);
-  background:rgba(201,168,76,.06);
-  box-shadow:0 0 18px rgba(201,168,76,.25), 0 0 40px rgba(201,168,76,.1), inset 0 0 15px rgba(201,168,76,.04);
-  transform:translateY(-3px);
-}
+.pr-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2.2rem;transition:border-color .25s,background .25s,box-shadow .25s,transform .2s;position:relative;overflow:hidden}
+.pr-card:hover{border-color:rgba(201,168,76,.55);background:rgba(201,168,76,.06);box-shadow:0 0 18px rgba(201,168,76,.25),0 0 40px rgba(201,168,76,.1),inset 0 0 15px rgba(201,168,76,.04);transform:translateY(-3px)}
 .pr-card.featured{background:linear-gradient(135deg,var(--navy-l),var(--navy-m));border-color:rgba(201,168,76,.3)}
-.pr-card.featured:hover{
-  border-color:rgba(201,168,76,.55);
-  background:linear-gradient(135deg,rgba(28,50,96,.95),rgba(17,32,56,.95));
-  box-shadow:0 0 18px rgba(201,168,76,.25), 0 0 40px rgba(201,168,76,.1), inset 0 0 15px rgba(201,168,76,.04);
-  transform:translateY(-3px);
-}
+.pr-card.featured:hover{border-color:rgba(201,168,76,.55);background:linear-gradient(135deg,rgba(28,50,96,.95),rgba(17,32,56,.95));box-shadow:0 0 18px rgba(201,168,76,.25),0 0 40px rgba(201,168,76,.1),inset 0 0 15px rgba(201,168,76,.04);transform:translateY(-3px)}
 .pr-badge{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--navy);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px}
 .pr-type{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;display:block}
-
-/* Price number — NO glow, just normal */
-.pr-price{
-  font-family:"Playfair Display",serif;
-  font-size:2.8rem;
-  font-weight:900;
-  color:var(--white);
-  line-height:1;
-  margin-bottom:.35rem;
-  display:inline-block;
-}
-
+.pr-price{font-family:"Playfair Display",serif;font-size:2.8rem;font-weight:900;color:var(--white);line-height:1;margin-bottom:.35rem;display:inline-block}
 .pr-sub{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1.4rem;display:block}
 .pr-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
 .pr-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.5}
 .pr-check{width:16px;min-width:16px;height:16px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .pr-note{text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:1.5rem}
 
-/* LEAD FORM */
+/* ═══════════════════════════ LEAD FORM ═══════════════════════════ */
 #start{background:var(--navy-m)}
 .start-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1200px;margin:0 auto}
-
-/* CHECKLIST HOVER GLOW */
 .chk-list{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-top:1.6rem}
-.chk-list li{
-  display:flex;align-items:flex-start;gap:.85rem;
-  padding:1.05rem 1.3rem;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:12px;
-  font-size:.86rem;
-  line-height:1.55;
-  color:rgba(255,255,255,.7);
-  transition:border-color .25s, background .25s, box-shadow .25s, color .25s, transform .2s;
-  cursor:default;
-}
-.chk-list li:hover{
-  border-color:rgba(201,168,76,.55);
-  background:rgba(201,168,76,.06);
-  box-shadow:0 0 18px rgba(201,168,76,.25), 0 0 40px rgba(201,168,76,.1), inset 0 0 15px rgba(201,168,76,.04);
-  color:rgba(255,255,255,.95);
-  transform:translateX(4px);
-}
-
-.chk-dot{min-width:19px;height:19px;background:rgba(201,168,76,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .25s, box-shadow .25s}
-.chk-list li:hover .chk-dot{
-  background:rgba(201,168,76,.35);
-  box-shadow:0 0 10px rgba(201,168,76,.6);
-}
-
-/* Form box */
+.chk-list li{display:flex;align-items:flex-start;gap:.85rem;padding:1.05rem 1.3rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;font-size:.86rem;line-height:1.55;color:rgba(255,255,255,.7);transition:border-color .25s,background .25s,box-shadow .25s,color .25s,transform .2s;cursor:default}
+.chk-list li:hover{border-color:rgba(201,168,76,.55);background:rgba(201,168,76,.06);box-shadow:0 0 18px rgba(201,168,76,.25),0 0 40px rgba(201,168,76,.1),inset 0 0 15px rgba(201,168,76,.04);color:rgba(255,255,255,.95);transform:translateX(4px)}
+.chk-dot{min-width:19px;height:19px;background:rgba(201,168,76,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:background .25s,box-shadow .25s}
+.chk-list li:hover .chk-dot{background:rgba(201,168,76,.35);box-shadow:0 0 10px rgba(201,168,76,.6)}
 .form-box{background:linear-gradient(135deg,var(--navy-l),var(--navy-m));border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:2.4rem 2rem}
 .form-box h3{font-family:"Playfair Display",serif;font-size:1.6rem;margin-bottom:.5rem}
 .form-box .fb-sub{font-size:.85rem;color:rgba(255,255,255,.52);margin-bottom:1.6rem}
@@ -232,7 +224,7 @@ section{padding:5rem 5%}
 .phone-num{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;color:var(--white)}
 .form-note{font-size:.7rem;color:rgba(255,255,255,.26);text-align:center;margin-top:.85rem}
 
-/* FOOTER */
+/* ═══════════════════════════ FOOTER ═══════════════════════════ */
 footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,168,76,.14)}
 .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
 .foot-brand p{margin-top:.85rem;font-size:.83rem;color:rgba(255,255,255,.38);line-height:1.68;max-width:280px}
@@ -243,24 +235,18 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
 .foot-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.6rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26)}
 .foot-bottom span{color:var(--gold)}
 
-/* HAMBURGER MENU */
+/* ═══════════════════════════ HAMBURGER ═══════════════════════════ */
 .ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1100;flex-shrink:0}
 .ham-btn span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:all .3s}
 .ham-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .ham-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-@media(max-width:860px){
-  .ham-btn{display:flex}
-  .nav-links{display:none !important;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:72%;max-width:260px;background:rgba(8,18,36,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:70px 1.8rem 2rem;border-left:1px solid rgba(201,168,76,.2);z-index:1050;transform:translateX(100%);transition:transform .3s ease;gap:0 !important;list-style:none}
-  .nav-links.open{display:flex !important;transform:translateX(0)}
-  .nav-links li{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
-  .nav-links li:last-child{border-bottom:none;margin-top:.8rem}
-  .nav-links a{font-size:1rem !important;color:rgba(255,255,255,.85) !important;font-weight:400}
-  .nav-links a:hover{color:var(--gold) !important}
-  .nav-btn{display:block;text-align:center;padding:.65rem 1rem !important;border-radius:6px;font-size:.9rem !important}
-}
+/* ═══════════════════════════ REVEAL ═══════════════════════════ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
+/* ═══════════════════════════ TABLET (≤900px) ═══════════════════════════ */
 @media(max-width:900px){
   section{padding:3.5rem 5%}
   .vid-wrap,.start-wrap,.how-top{grid-template-columns:1fr;gap:2rem}
@@ -274,46 +260,94 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .logo-combo{justify-content:center}
   .foot-col ul{align-items:center}
   .foot-bottom{flex-direction:column;gap:.4rem;text-align:center}
-  .hero-counters{position:static !important;margin-top:2rem;padding-bottom:3rem;gap:2rem;justify-content:flex-start}
 }
 
+/* ═══════════════════════════ MOBILE (≤860px) — HAMBURGER ═══════════════════════════ */
+@media(max-width:860px){
+  .ham-btn{display:flex}
+  .nav-links{
+    display:none !important;
+    flex-direction:column;
+    position:fixed;
+    top:0;right:0;bottom:0;
+    width:72%;max-width:260px;
+    background:rgba(8,18,36,.98);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    padding:70px 1.8rem 2rem;
+    border-left:1px solid rgba(201,168,76,.2);
+    z-index:1050;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+    gap:0 !important;
+    list-style:none;
+  }
+  .nav-links.open{display:flex !important;transform:translateX(0)}
+  .nav-links li{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav-links li:last-child{border-bottom:none;margin-top:.8rem}
+  .nav-links a{font-size:1rem !important;color:rgba(255,255,255,.85) !important;font-weight:400}
+  .nav-links a:hover{color:var(--gold) !important}
+  .nav-btn{display:block;text-align:center;padding:.65rem 1rem !important;border-radius:6px;font-size:.9rem !important}
+}
+
+/* ═══════════════════════════ MOBILE (≤600px) — MAIN FIX ═══════════════════════════ */
 @media(max-width:600px){
-  section{padding:2.8rem 4%}
-  nav{padding:.55rem 4%}
-  .logo-dla{width:30px;height:30px;font-size:12px;flex-shrink:0}
-  .logo-sep{height:24px}
-  .logo-img img{height:32px}
-  #hero{padding:72px 4% 0 !important;min-height:100svh;align-items:flex-start}
-  .hero-inner{padding-top:.5rem;padding-bottom:1rem;max-width:100%;width:100%}
-  .hero-pill{font-size:.6rem;padding:.26rem .7rem;margin-bottom:1rem}
-  h1.hero-h1{font-size:1.85rem;line-height:1.08;margin-bottom:.35rem}
-  .hero-subline{font-size:1.25rem;margin-bottom:.9rem}
-  .hero-sub{font-size:.84rem;line-height:1.68;margin-bottom:1rem;max-width:100%}
-  .hero-bid-badges{flex-direction:column;gap:.35rem;margin-bottom:1.2rem}
-  .hbb{font-size:.67rem;padding:.25rem .7rem}
-  .hero-btns{flex-direction:column;gap:.5rem;width:100%;margin-bottom:1.2rem}
-  .btn-g,.btn-o{width:100%;justify-content:center;font-size:.84rem;padding:.72rem 1rem}
-  .hero-counters{position:static !important;display:flex;flex-direction:row;gap:0;justify-content:space-between;width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.15);border-radius:12px;padding:.9rem 1rem;margin-top:0;margin-bottom:2.5rem}
-  .ctr{flex:1;text-align:center;position:relative}
-  .ctr:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:60%;width:1px;background:rgba(201,168,76,.2)}
-  .ctr-n{font-size:1.5rem}
-  .ctr-l{font-size:.55rem;letter-spacing:.06em}
-  .slide-dots{bottom:.8rem}
+  :root{--nav-h:56px}
+  nav{padding:.5rem 4%}
+  .logo-dla{width:32px;height:32px;font-size:12px}
+  .logo-sep{height:22px}
+  .logo-img img{height:34px}
+
+  /* ── HERO MOBILE ── */
+  #hero{
+    min-height:100svh;
+    justify-content:flex-start;
+  }
+  .hero-content{
+    padding: calc(var(--nav-h) + 1.5rem) 4.5% 3.5rem;
+    justify-content:flex-start;
+    padding-top: calc(var(--nav-h) + 1.2rem);
+  }
+  .hero-inner{max-width:100%;width:100%}
+  .hero-pill{font-size:.6rem;padding:.26rem .72rem;margin-bottom:.9rem;letter-spacing:.1em}
+  h1.hero-h1{font-size:clamp(1.7rem,8vw,2.2rem);margin-bottom:.3rem;line-height:1.07}
+  .hero-subline{font-size:clamp(1.1rem,5.5vw,1.45rem);margin-bottom:.85rem}
+  .hero-sub{font-size:.85rem;line-height:1.68;margin-bottom:1.1rem;max-width:100%}
+  .hero-bid-badges{flex-direction:column;gap:.35rem;margin-bottom:1.1rem}
+  .hbb{font-size:.68rem;padding:.26rem .72rem}
+  .hero-btns{flex-direction:column;gap:.5rem;width:100%;margin-bottom:1.4rem}
+  .btn-g,.btn-o{width:100%;justify-content:center;font-size:.86rem;padding:.74rem 1rem}
+  /* counters strip */
+  .hero-counters{max-width:100%;border-radius:12px;margin-bottom:0}
+  .ctr{padding:.75rem .4rem}
+  .ctr-n{font-size:1.45rem}
+  .ctr-l{font-size:.56rem;letter-spacing:.05em}
+  .slide-dots{bottom:.6rem}
   .slide-dot{width:16px;height:2px}
   .slide-dot.active{width:26px}
+
+  /* ── SECTIONS ── */
+  section{padding:2.8rem 4.5%}
+  .s-title{font-size:clamp(1.4rem,6vw,1.9rem)}
+  .s-desc{font-size:.88rem}
+  
+  /* video */
   #video-sec .vid-wrap > div:first-child{order:2}
   .vid-box{order:1}
   #video-sec .btn-g{width:100%;justify-content:center}
   .vid-wrap > div:first-child .bar{margin:.8rem 0}
+
+  /* how */
   .how-grid{grid-template-columns:1fr}
   .how-card{padding:1.2rem}
   .how-n{font-size:2.2rem}
   .how-card h3{font-size:.98rem}
   .how-card p{font-size:.79rem}
   .how-top{gap:1rem;margin-bottom:1.8rem}
+
+  /* globe */
   #globe-section-inner{overflow:hidden}
-  #globe-header .s-title{font-size:1.45rem}
-  #globe-header .s-desc{font-size:.85rem}
+  #globe-header .s-title{font-size:clamp(1.3rem,6vw,1.7rem)}
   #globeCanvas{max-width:100% !important;width:100% !important}
   #globe-cards{grid-template-columns:1fr 1fr;gap:.4rem}
   .g-card{padding:.6rem .7rem;gap:.4rem}
@@ -324,59 +358,57 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   #globe-info-flag{font-size:1.5rem}
   #globe-info-name{font-size:.88rem}
   #globe-info-desc{font-size:.76rem;line-height:1.58}
-  #globe-info-empty{font-size:.76rem}
+
+  /* partners */
   .partners-strip{margin-top:2rem}
-  .partners-strip h4{font-size:.58rem;margin-bottom:1rem}
   .p-grid{grid-template-columns:1fr 1fr;gap:.5rem}
   .p-tile{padding:.75rem .6rem}
   .p-tile h5{font-size:.74rem}
   .p-tile p{font-size:.58rem}
-  .pricing-header .s-title{font-size:1.45rem}
-  .pricing-header .s-desc{font-size:.86rem}
-  .pr-card{padding:1.3rem}
-  .pr-price{font-size:2rem}
-  .pr-type{font-size:.58rem}
-  .pr-sub{font-size:.74rem}
-  .pr-list li{font-size:.76rem;gap:.55rem}
+
+  /* pricing */
+  .pr-card{padding:1.4rem}
+  .pr-price{font-size:2.1rem}
+  .pr-type{font-size:.6rem}
+  .pr-sub{font-size:.76rem}
+  .pr-list li{font-size:.77rem;gap:.5rem}
   .pr-badge{font-size:.54rem;top:10px;right:10px;padding:.2rem .6rem}
-  .start-wrap > div:first-child .s-title{font-size:1.45rem}
-  .start-wrap > div:first-child .s-desc{font-size:.86rem}
+
+  /* start form */
+  .start-wrap > div:first-child .s-title{font-size:clamp(1.3rem,6vw,1.7rem)}
   .chk-list{margin-top:1rem;gap:.6rem}
-  .chk-list li{font-size:.78rem;padding:.8rem .9rem;line-height:1.5}
-  .form-box{padding:1.3rem 1rem;border-radius:12px}
-  .form-box h3{font-size:1.25rem;margin-bottom:.35rem}
-  .form-box .fb-sub{font-size:.78rem;margin-bottom:1rem}
+  .chk-list li{font-size:.79rem;padding:.8rem .9rem;line-height:1.5}
+  .form-box{padding:1.4rem 1rem;border-radius:14px}
+  .form-box h3{font-size:1.3rem;margin-bottom:.35rem}
+  .form-box .fb-sub{font-size:.8rem;margin-bottom:1rem}
   .form-field label{font-size:.62rem}
-  .form-field input,.form-field select,.form-field textarea{font-size:.82rem;padding:.6rem .75rem;border-radius:7px}
+  .form-field input,.form-field select,.form-field textarea{font-size:.84rem;padding:.62rem .8rem;border-radius:8px}
   .form-field textarea{min-height:65px}
-  .form-row{gap:.6rem;margin-bottom:.6rem}
-  .submit-btn{font-size:.84rem;padding:.78rem;border-radius:8px;margin-top:.3rem}
-  .phone-strip{padding:.75rem .9rem;margin-top:.85rem;border-radius:10px}
+  .form-row{gap:.6rem;margin-bottom:.65rem}
+  .submit-btn{font-size:.86rem;padding:.8rem;border-radius:8px;margin-top:.35rem}
+  .phone-strip{padding:.78rem .95rem;margin-top:.85rem;border-radius:10px}
   .phone-lbl{font-size:.56rem}
   .phone-num{font-size:1rem}
   .form-note{font-size:.62rem;margin-top:.7rem}
-  footer{padding:2rem 4% 1.2rem}
-  .logo-combo{justify-content:center}
-  .foot-brand p{font-size:.76rem}
+
+  /* footer */
+  footer{padding:2rem 4.5% 1.2rem}
+  .foot-brand p{font-size:.78rem}
   .foot-col h4{font-size:.6rem;margin-bottom:.75rem}
-  .foot-col a{font-size:.76rem}
-  .foot-bottom{font-size:.65rem;gap:.3rem}
-  .foot-bottom > *{text-align:center;width:100%}
+  .foot-col a{font-size:.78rem}
+  .foot-bottom{font-size:.66rem;gap:.3rem}
 }
 
+/* ═══════════════════════════ TINY (≤380px) ═══════════════════════════ */
 @media(max-width:380px){
-  h1.hero-h1{font-size:1.6rem}
-  .hero-subline{font-size:1.08rem}
-  .hero-pill{font-size:.56rem}
-  .ctr-n{font-size:1.25rem}
+  h1.hero-h1{font-size:1.55rem}
+  .hero-subline{font-size:1.05rem}
+  .ctr-n{font-size:1.2rem}
   .ctr-l{font-size:.5rem}
   #globe-cards{grid-template-columns:1fr}
   .p-grid{grid-template-columns:1fr}
-  .pr-price{font-size:1.85rem}
+  .pr-price{font-size:1.8rem}
 }
-
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -410,42 +442,48 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   </div>
   <div class="slide-progress" id="slideProgress"></div>
   <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <div class="hero-pill">10+ Years in the Auto Industry</div>
-    <h1 class="hero-h1">Get Your Own</h1>
-    <div class="hero-subline"><em style="font-style:normal">Auto Dealer License</em> in 30 Days.</div>
-    <p class="hero-sub">Get fully licensed under your own business name, access dealer-only wholesale auctions, and start buying and selling vehicles — we handle everything from start to finish.</p>
-    <div class="hero-bid-badges">
-      <span class="hbb">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        Bid In-Person at Auction
-      </span>
-      <span class="hbb">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
-        Or From Your Phone, Anywhere
-      </span>
-    </div>
-    <div class="hero-btns">
-      <a href="#start" class="btn-g">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Get Licensed Now
-      </a>
-      <a href="#video-sec" class="btn-o">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-        Watch Overview
-      </a>
+
+  <!-- ALL hero content in one flow container -->
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-pill">10+ Years in the Auto Industry</div>
+      <h1 class="hero-h1">Get Your Own</h1>
+      <div class="hero-subline"><em style="font-style:normal">Auto Dealer License</em> in 30 Days.</div>
+      <p class="hero-sub">Get fully licensed under your own business name, access dealer-only wholesale auctions, and start buying and selling vehicles — we handle everything from start to finish.</p>
+      <div class="hero-bid-badges">
+        <span class="hbb">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Bid In-Person at Auction
+        </span>
+        <span class="hbb">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>
+          Or From Your Phone, Anywhere
+        </span>
+      </div>
+      <div class="hero-btns">
+        <a href="#start" class="btn-g">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Get Licensed Now
+        </a>
+        <a href="#video-sec" class="btn-o">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+          Watch Overview
+        </a>
+      </div>
+      <!-- Counters in normal document flow — NO absolute positioning -->
+      <div class="hero-counters">
+        <div class="ctr"><span class="ctr-n">30</span><span class="ctr-l">Days to License</span></div>
+        <div class="ctr"><span class="ctr-n">10+</span><span class="ctr-l">Years Experience</span></div>
+        <div class="ctr"><span class="ctr-n">4</span><span class="ctr-l">Markets Unlocked</span></div>
+      </div>
     </div>
   </div>
+
   <div class="slide-dots">
     <div class="slide-dot active" onclick="goToSlide(0)"></div>
     <div class="slide-dot" onclick="goToSlide(1)"></div>
     <div class="slide-dot" onclick="goToSlide(2)"></div>
     <div class="slide-dot" onclick="goToSlide(3)"></div>
-  </div>
-  <div class="hero-counters">
-    <div class="ctr"><span class="ctr-n">30</span><span class="ctr-l">Days to License</span></div>
-    <div class="ctr"><span class="ctr-n">10+</span><span class="ctr-l">Years Experience</span></div>
-    <div class="ctr"><span class="ctr-n">4</span><span class="ctr-l">Markets Unlocked</span></div>
   </div>
 </section>
 
@@ -657,7 +695,7 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
   </div>
 </section>
 
-<!-- GET STARTED — LEAD FORM -->
+<!-- GET STARTED -->
 <section id="start">
   <div class="start-wrap">
     <div>
@@ -780,39 +818,22 @@ resetProg();
 // VIDEO
 function playVideo(){document.getElementById("vidBox").innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';}
 
-// FORM — Google Sheets Integration
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbyJMHZ-XfDZiIU8qsph9XIqXsT0ZiHYb79e-vVUWhFOkTHfR2oaDVYsvfvYuwk6uiPZ/exec";
-
+// FORM
+const SHEET_URL="https://script.google.com/macros/s/AKfycbyJMHZ-XfDZiIU8qsph9XIqXsT0ZiHYb79e-vVUWhFOkTHfR2oaDVYsvfvYuwk6uiPZ/exec";
 async function submitForm(e){
   e.preventDefault();
-  const form = document.getElementById("leadForm");
-  const btn  = document.querySelector(".submit-btn");
-  btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/></circle></svg> Sending...';
-  btn.disabled = true;
-  const data = {
-    firstName : form.firstName.value,
-    lastName  : form.lastName.value,
-    phone     : form.phone.value,
-    email     : form.email.value,
-    timeline  : form.timeline.value,
-    message   : form.message.value
-  };
-  try {
-    await fetch(SHEET_URL, {
-      method  : "POST",
-      mode    : "no-cors",
-      headers : { "Content-Type": "application/json" },
-      body    : JSON.stringify(data)
-    });
-    btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Submitted! We\'ll be in touch shortly.';
-    btn.style.background = "#2a7a4b";
-    btn.style.color = "#fff";
-    form.reset();
-  } catch(err) {
-    btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Error — please try again';
-    btn.style.background = "#9b2c2c";
-    btn.style.color = "#fff";
-    btn.disabled = false;
+  const form=document.getElementById("leadForm");
+  const btn=document.querySelector(".submit-btn");
+  btn.innerHTML='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.8s" repeatCount="indefinite"/></circle></svg> Sending...';
+  btn.disabled=true;
+  const data={firstName:form.firstName.value,lastName:form.lastName.value,phone:form.phone.value,email:form.email.value,timeline:form.timeline.value,message:form.message.value};
+  try{
+    await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    btn.innerHTML='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Submitted! We\'ll be in touch shortly.';
+    btn.style.background="#2a7a4b";btn.style.color="#fff";form.reset();
+  }catch(err){
+    btn.innerHTML='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Error — please try again';
+    btn.style.background="#9b2c2c";btn.style.color="#fff";btn.disabled=false;
   }
 }
 
@@ -831,12 +852,11 @@ document.querySelectorAll('#navLinks a').forEach(a=>{
     document.getElementById('navLinks').classList.remove('open');
   });
 });
-document.addEventListener('click', e=>{
+document.addEventListener('click',e=>{
   const nav=document.getElementById('navLinks');
   const btn=document.querySelector('.ham-btn');
-  if(nav && nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)){
-    nav.classList.remove('open');
-    btn.classList.remove('open');
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    nav.classList.remove('open');btn.classList.remove('open');
   }
 });
 </script>

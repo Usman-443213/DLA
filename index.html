@@ -10,8 +10,6 @@
 :root{--gold:#C9A84C;--gold-lt:#E8C96A;--gold-dk:#9A7A2E;--navy:#0A1628;--navy-m:#112038;--navy-l:#1C3260;--white:#fff;--nav-h:62px}
 html{scroll-behavior:smooth}
 body{font-family:"DM Sans",sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
-
-/* ═══════════════════════════ NAV ═══════════════════════════ */
 nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.7rem 5%;background:rgba(10,22,40,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.18);height:var(--nav-h)}
 .logo-combo{display:flex;align-items:center;gap:12px}
 .logo-dla{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:900;font-size:15px;color:var(--navy);letter-spacing:-.5px;flex-shrink:0}
@@ -23,18 +21,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .nav-btn{background:var(--gold)!important;color:var(--navy)!important;padding:.48rem 1.25rem;border-radius:6px;font-weight:600!important;font-size:.81rem!important}
 .nav-btn:hover{background:var(--gold-lt)!important}
 @media(max-width:860px){.nav-links{display:none}}
-
-/* ═══════════════════════════ HERO ═══════════════════════════ */
-#hero{
-  position:relative;
-  min-height:100vh;
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:0;
-  overflow:hidden;
-}
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0;overflow:hidden}
 .hero-slides{position:absolute;inset:0;z-index:0}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;background-size:cover;background-position:center 60%}
 .hero-slide.active{opacity:1}
@@ -48,19 +35,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .slide-dot.active{background:var(--gold);width:42px}
 .slide-progress{position:absolute;top:0;left:0;height:2px;background:var(--gold);z-index:10;width:0;transition:width 4s linear}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:56px 56px;z-index:1}
-
-/* Hero content wrapper — sits above slides */
-.hero-content{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  padding: calc(var(--nav-h) + 2rem) 5% 4.5rem;
-  flex:1;
-  justify-content:flex-end;
-}
-
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;width:100%;padding:calc(var(--nav-h) + 2rem) 5% 4.5rem;flex:1;justify-content:flex-end}
 .hero-inner{max-width:660px}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.28);border-radius:100px;padding:.36rem .95rem;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;animation:fadeUp .7s ease both}
 .hero-pill::before{content:"";width:6px;height:6px;background:var(--gold);border-radius:50%;animation:blink 2s infinite}
@@ -75,48 +50,18 @@ h1.hero-h1{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.8vw,3.5re
 .btn-g:hover{background:var(--gold-lt);transform:translateY(-2px)}
 .btn-o{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--white);padding:.82rem 1.8rem;border-radius:8px;border:1px solid rgba(255,255,255,.22);font-size:.9rem;text-decoration:none;transition:all .2s}
 .btn-o:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
-
-/* Counters — in normal flow at bottom of hero on ALL screens */
-.hero-counters{
-  display:flex;
-  gap:0;
-  animation:fadeUp .7s ease .4s both;
-  z-index:5;
-  position:relative;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(201,168,76,.18);
-  border-radius:14px;
-  overflow:hidden;
-  max-width:420px;
-}
-.ctr{
-  flex:1;
-  text-align:center;
-  padding:.9rem .5rem;
-  position:relative;
-}
-.ctr:not(:last-child)::after{
-  content:'';
-  position:absolute;
-  right:0;top:50%;
-  transform:translateY(-50%);
-  height:55%;width:1px;
-  background:rgba(201,168,76,.2);
-}
+.hero-counters{display:flex;gap:0;animation:fadeUp .7s ease .4s both;z-index:5;position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.18);border-radius:14px;overflow:hidden;max-width:420px}
+.ctr{flex:1;text-align:center;padding:.9rem .5rem;position:relative}
+.ctr:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);height:55%;width:1px;background:rgba(201,168,76,.2)}
 .ctr-n{font-family:"Playfair Display",serif;font-size:1.8rem;font-weight:700;color:var(--gold);display:block;line-height:1}
 .ctr-l{font-size:.64rem;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:.3rem;display:block}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-
-/* ═══════════════════════════ SHARED ═══════════════════════════ */
 section{padding:5rem 5%}
 .s-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.6rem;display:block}
 .s-title{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
 .s-desc{font-size:.95rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.62);max-width:540px}
 .bar{width:44px;height:2px;background:var(--gold);margin:1.2rem 0}
 .mxw{max-width:1200px;margin:0 auto}
-
-/* ═══════════════════════════ VIDEO ═══════════════════════════ */
 #video-sec{background:var(--navy-m)}
 .vid-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto}
 .vid-box{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:var(--navy-m);border:1px solid rgba(201,168,76,.18)}
@@ -125,8 +70,6 @@ section{padding:5rem 5%}
 .vid-overlay:hover .play-ring{transform:scale(1.1);background:var(--gold-lt)}
 .play-ring svg{margin-left:4px}
 .vid-overlay p{color:rgba(255,255,255,.55);font-size:.8rem}
-
-/* ═══════════════════════════ HOW IT WORKS ═══════════════════════════ */
 #how{background:var(--navy)}
 .how-top{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
@@ -137,8 +80,6 @@ section{padding:5rem 5%}
 .how-ico{width:42px;height:42px;background:rgba(201,168,76,.09);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--gold)}
 .how-card h3{font-family:"Playfair Display",serif;font-size:1.08rem;font-weight:700;margin-bottom:.6rem}
 .how-card p{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.55)}
-
-/* ═══════════════════════════ GLOBE ═══════════════════════════ */
 #auctions{background:var(--navy-m)}
 #globe-section-inner{max-width:1200px;margin:0 auto}
 #globe-header{text-align:center;margin-bottom:2.5rem}
@@ -167,16 +108,94 @@ section{padding:5rem 5%}
 .g-card-arrow{color:#C9A84C;font-size:1.05rem;line-height:1;transition:transform .22s}
 .g-card.g-active .g-card-arrow{transform:rotate(90deg)}
 
-/* Partners */
+/* ── PARTNERS STRIP — PNG LOGOS WITH HOVER NAME REVEAL ── */
 .partners-strip{margin-top:2.5rem;max-width:1200px;margin-left:auto;margin-right:auto}
 .partners-strip h4{text-align:center;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.2rem}
 .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
-.p-tile{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055);border-radius:11px;padding:1rem .9rem;text-align:center;transition:all .3s}
-.p-tile:hover{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.2)}
-.p-tile h5{font-size:.83rem;font-weight:600;margin-bottom:.2rem;color:var(--white)}
-.p-tile p{font-size:.68rem;color:rgba(255,255,255,.38);line-height:1.4}
 
-/* ═══════════════════════════ PRICING ═══════════════════════════ */
+.p-tile{
+  background:#fff;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:11px;
+  padding:1.2rem .9rem 1rem;
+  text-align:center;
+  transition:all .35s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  min-height:90px;
+}
+.p-tile:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 28px rgba(201,168,76,.22);
+  border-color:rgba(201,168,76,.4);
+  background:var(--navy-m);
+}
+
+/* Logo layer — visible by default */
+.p-tile-logo{
+  width:100%;
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .32s,transform .32s;
+  position:relative;
+  z-index:1;
+}
+.p-tile-logo img{
+  max-height:50px;
+  max-width:90%;
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
+
+/* Name layer — hidden by default, revealed on hover */
+.p-tile-name{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:.75rem .65rem;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .32s,transform .32s;
+  z-index:2;
+  pointer-events:none;
+}
+.p-tile-name h5{
+  font-family:"Playfair Display",serif;
+  font-size:.82rem;
+  font-weight:700;
+  color:var(--gold);
+  margin:0 0 .3rem;
+  line-height:1.3;
+}
+.p-tile-name p{
+  font-size:.6rem;
+  color:rgba(255,255,255,.52);
+  line-height:1.45;
+  margin:0;
+}
+
+/* Hover: logo fades out, name fades in */
+.p-tile:hover .p-tile-logo{
+  opacity:0;
+  transform:translateY(-10px);
+}
+.p-tile:hover .p-tile-name{
+  opacity:1;
+  transform:translateY(0);
+}
+
 #pricing{background:var(--navy)}
 .pricing-wrap{max-width:900px;margin:0 auto}
 .pricing-header{text-align:center;margin-bottom:2.5rem}
@@ -193,8 +212,6 @@ section{padding:5rem 5%}
 .pr-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.5}
 .pr-check{width:16px;min-width:16px;height:16px;background:rgba(201,168,76,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .pr-note{text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:1.5rem}
-
-/* ═══════════════════════════ LEAD FORM ═══════════════════════════ */
 #start{background:var(--navy-m)}
 .start-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;max-width:1200px;margin:0 auto}
 .chk-list{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-top:1.6rem}
@@ -223,8 +240,6 @@ section{padding:5rem 5%}
 .phone-lbl{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1px}
 .phone-num{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:700;color:var(--white)}
 .form-note{font-size:.7rem;color:rgba(255,255,255,.26);text-align:center;margin-top:.85rem}
-
-/* ═══════════════════════════ FOOTER ═══════════════════════════ */
 footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,168,76,.14)}
 .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
 .foot-brand p{margin-top:.85rem;font-size:.83rem;color:rgba(255,255,255,.38);line-height:1.68;max-width:280px}
@@ -234,19 +249,13 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
 .foot-col a:hover{color:var(--white)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.6rem;display:flex;align-items:center;justify-content:space-between;font-size:.76rem;color:rgba(255,255,255,.26)}
 .foot-bottom span{color:var(--gold)}
-
-/* ═══════════════════════════ HAMBURGER ═══════════════════════════ */
 .ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1100;flex-shrink:0}
 .ham-btn span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:all .3s}
 .ham-btn.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .ham-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham-btn.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-
-/* ═══════════════════════════ REVEAL ═══════════════════════════ */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ═══════════════════════════ TABLET (≤900px) ═══════════════════════════ */
 @media(max-width:900px){
   section{padding:3.5rem 5%}
   .vid-wrap,.start-wrap,.how-top{grid-template-columns:1fr;gap:2rem}
@@ -261,27 +270,9 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .foot-col ul{align-items:center}
   .foot-bottom{flex-direction:column;gap:.4rem;text-align:center}
 }
-
-/* ═══════════════════════════ MOBILE (≤860px) — HAMBURGER ═══════════════════════════ */
 @media(max-width:860px){
   .ham-btn{display:flex}
-  .nav-links{
-    display:none !important;
-    flex-direction:column;
-    position:fixed;
-    top:0;right:0;bottom:0;
-    width:72%;max-width:260px;
-    background:rgba(8,18,36,.98);
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
-    padding:70px 1.8rem 2rem;
-    border-left:1px solid rgba(201,168,76,.2);
-    z-index:1050;
-    transform:translateX(100%);
-    transition:transform .3s ease;
-    gap:0 !important;
-    list-style:none;
-  }
+  .nav-links{display:none !important;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:72%;max-width:260px;background:rgba(8,18,36,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:70px 1.8rem 2rem;border-left:1px solid rgba(201,168,76,.2);z-index:1050;transform:translateX(100%);transition:transform .3s ease;gap:0 !important;list-style:none}
   .nav-links.open{display:flex !important;transform:translateX(0)}
   .nav-links li{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
   .nav-links li:last-child{border-bottom:none;margin-top:.8rem}
@@ -289,25 +280,14 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .nav-links a:hover{color:var(--gold) !important}
   .nav-btn{display:block;text-align:center;padding:.65rem 1rem !important;border-radius:6px;font-size:.9rem !important}
 }
-
-/* ═══════════════════════════ MOBILE (≤600px) — MAIN FIX ═══════════════════════════ */
 @media(max-width:600px){
   :root{--nav-h:56px}
   nav{padding:.5rem 4%}
   .logo-dla{width:32px;height:32px;font-size:12px}
   .logo-sep{height:22px}
   .logo-img img{height:34px}
-
-  /* ── HERO MOBILE ── */
-  #hero{
-    min-height:100svh;
-    justify-content:flex-start;
-  }
-  .hero-content{
-    padding: calc(var(--nav-h) + 1.5rem) 4.5% 3.5rem;
-    justify-content:flex-start;
-    padding-top: calc(var(--nav-h) + 1.2rem);
-  }
+  #hero{min-height:100svh;justify-content:flex-start}
+  .hero-content{padding:calc(var(--nav-h) + 1.5rem) 4.5% 3.5rem;justify-content:flex-start;padding-top:calc(var(--nav-h) + 1.2rem)}
   .hero-inner{max-width:100%;width:100%}
   .hero-pill{font-size:.6rem;padding:.26rem .72rem;margin-bottom:.9rem;letter-spacing:.1em}
   h1.hero-h1{font-size:clamp(1.7rem,8vw,2.2rem);margin-bottom:.3rem;line-height:1.07}
@@ -317,7 +297,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .hbb{font-size:.68rem;padding:.26rem .72rem}
   .hero-btns{flex-direction:column;gap:.5rem;width:100%;margin-bottom:1.4rem}
   .btn-g,.btn-o{width:100%;justify-content:center;font-size:.86rem;padding:.74rem 1rem}
-  /* counters strip */
   .hero-counters{max-width:100%;border-radius:12px;margin-bottom:0}
   .ctr{padding:.75rem .4rem}
   .ctr-n{font-size:1.45rem}
@@ -325,27 +304,19 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .slide-dots{bottom:.6rem}
   .slide-dot{width:16px;height:2px}
   .slide-dot.active{width:26px}
-
-  /* ── SECTIONS ── */
   section{padding:2.8rem 4.5%}
   .s-title{font-size:clamp(1.4rem,6vw,1.9rem)}
   .s-desc{font-size:.88rem}
-  
-  /* video */
   #video-sec .vid-wrap > div:first-child{order:2}
   .vid-box{order:1}
   #video-sec .btn-g{width:100%;justify-content:center}
   .vid-wrap > div:first-child .bar{margin:.8rem 0}
-
-  /* how */
   .how-grid{grid-template-columns:1fr}
   .how-card{padding:1.2rem}
   .how-n{font-size:2.2rem}
   .how-card h3{font-size:.98rem}
   .how-card p{font-size:.79rem}
   .how-top{gap:1rem;margin-bottom:1.8rem}
-
-  /* globe */
   #globe-section-inner{overflow:hidden}
   #globe-header .s-title{font-size:clamp(1.3rem,6vw,1.7rem)}
   #globeCanvas{max-width:100% !important;width:100% !important}
@@ -358,23 +329,19 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   #globe-info-flag{font-size:1.5rem}
   #globe-info-name{font-size:.88rem}
   #globe-info-desc{font-size:.76rem;line-height:1.58}
-
-  /* partners */
   .partners-strip{margin-top:2rem}
   .p-grid{grid-template-columns:1fr 1fr;gap:.5rem}
-  .p-tile{padding:.75rem .6rem}
-  .p-tile h5{font-size:.74rem}
-  .p-tile p{font-size:.58rem}
-
-  /* pricing */
+  .p-tile{padding:.75rem .6rem;min-height:75px}
+  .p-tile-logo{height:40px}
+  .p-tile-logo img{max-height:36px}
+  .p-tile-name h5{font-size:.7rem}
+  .p-tile-name p{font-size:.56rem}
   .pr-card{padding:1.4rem}
   .pr-price{font-size:2.1rem}
   .pr-type{font-size:.6rem}
   .pr-sub{font-size:.76rem}
   .pr-list li{font-size:.77rem;gap:.5rem}
   .pr-badge{font-size:.54rem;top:10px;right:10px;padding:.2rem .6rem}
-
-  /* start form */
   .start-wrap > div:first-child .s-title{font-size:clamp(1.3rem,6vw,1.7rem)}
   .chk-list{margin-top:1rem;gap:.6rem}
   .chk-list li{font-size:.79rem;padding:.8rem .9rem;line-height:1.5}
@@ -390,16 +357,12 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .phone-lbl{font-size:.56rem}
   .phone-num{font-size:1rem}
   .form-note{font-size:.62rem;margin-top:.7rem}
-
-  /* footer */
   footer{padding:2rem 4.5% 1.2rem}
   .foot-brand p{font-size:.78rem}
   .foot-col h4{font-size:.6rem;margin-bottom:.75rem}
   .foot-col a{font-size:.78rem}
   .foot-bottom{font-size:.66rem;gap:.3rem}
 }
-
-/* ═══════════════════════════ TINY (≤380px) ═══════════════════════════ */
 @media(max-width:380px){
   h1.hero-h1{font-size:1.55rem}
   .hero-subline{font-size:1.05rem}
@@ -442,8 +405,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   </div>
   <div class="slide-progress" id="slideProgress"></div>
   <div class="hero-grid"></div>
-
-  <!-- ALL hero content in one flow container -->
   <div class="hero-content">
     <div class="hero-inner">
       <div class="hero-pill">10+ Years in the Auto Industry</div>
@@ -470,7 +431,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
           Watch Overview
         </a>
       </div>
-      <!-- Counters in normal document flow — NO absolute positioning -->
       <div class="hero-counters">
         <div class="ctr"><span class="ctr-n">30</span><span class="ctr-l">Days to License</span></div>
         <div class="ctr"><span class="ctr-n">10+</span><span class="ctr-l">Years Experience</span></div>
@@ -478,7 +438,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
       </div>
     </div>
   </div>
-
   <div class="slide-dots">
     <div class="slide-dot active" onclick="goToSlide(0)"></div>
     <div class="slide-dot" onclick="goToSlide(1)"></div>
@@ -592,18 +551,72 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
       </div>
     </div>
   </div>
-  <!-- TRUSTED PARTNERS -->
+
+  <!-- ══ TRUSTED PARTNERS — PNG LOGOS WITH HOVER NAME REVEAL ══ -->
   <div class="partners-strip">
     <h4>Trusted Industry Partners &amp; Platforms</h4>
     <div class="p-grid">
-      <div class="p-tile reveal"><h5>Manheim</h5><p>North America's largest wholesale auto auction</p></div>
-      <div class="p-tile reveal"><h5>ADESA Auctions</h5><p>Physical &amp; digital dealer auctions nationwide</p></div>
-      <div class="p-tile reveal"><h5>Copart</h5><p>Online salvage &amp; clean title vehicle auctions</p></div>
-      <div class="p-tile reveal"><h5>AutoCheck / Experian</h5><p>Vehicle history reports for smart buying</p></div>
-      <div class="p-tile reveal"><h5>Westlake Financial</h5><p>Dealer financing &amp; customer loan programs</p></div>
-      <div class="p-tile reveal"><h5>Automotive Finance Corp</h5><p>Floorplan financing for your inventory</p></div>
-      <div class="p-tile reveal"><h5>SBA Resources</h5><p>Small business tools for dealer entrepreneurs</p></div>
-      <div class="p-tile reveal"><h5>Shiply Transport</h5><p>Nationwide vehicle shipping for dealers</p></div>
+
+      <a class="p-tile reveal" href="https://www.manheim.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="a.png" alt="Manheim"></div>
+        <div class="p-tile-name"><h5>Manheim</h5><p>North America's largest wholesale auto auction</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.upstart.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="b.png" alt="Upstart"></div>
+        <div class="p-tile-name"><h5>Upstart</h5><p>AI-powered financing solutions</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.sba.gov" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="c.png" alt="SBA"></div>
+        <div class="p-tile-name"><h5>SBA Resources</h5><p>Small business tools for dealer entrepreneurs</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.autocheck.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="d.png" alt="AutoCheck"></div>
+        <div class="p-tile-name"><h5>AutoCheck / Experian</h5><p>Vehicle history reports for smart buying</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.autofinance.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="e.png" alt="AFC"></div>
+        <div class="p-tile-name"><h5>Automotive Finance Corp</h5><p>Floorplan financing for your inventory</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.waynereaves.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="f.png" alt="Wayne Reaves"></div>
+        <div class="p-tile-name"><h5>Wayne Reaves</h5><p>Dealer software &amp; websites</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.usautosupply.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="g.png" alt="US Auto Supply"></div>
+        <div class="p-tile-name"><h5>US Auto Supply</h5><p>Dealer supplies &amp; accessories</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.shiply.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="h.png" alt="Shiply"></div>
+        <div class="p-tile-name"><h5>Shiply Transport</h5><p>Nationwide vehicle shipping for dealers</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.westlakefinancial.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="i.png" alt="Westlake Financial"></div>
+        <div class="p-tile-name"><h5>Westlake Financial</h5><p>Dealer financing &amp; customer loan programs</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.galves.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="j.png" alt="Galves"></div>
+        <div class="p-tile-name"><h5>Galves Auto Price List</h5><p>Trusted vehicle valuation data</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.endurancedealerservices.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="k.png" alt="EDS"></div>
+        <div class="p-tile-name"><h5>Endurance Dealer Services</h5><p>Warranty &amp; protection products</p></div>
+      </a>
+
+      <a class="p-tile reveal" href="https://www.copart.com" target="_blank" rel="noopener">
+        <div class="p-tile-logo"><img src="l.png" alt="Copart"></div>
+        <div class="p-tile-name"><h5>Copart</h5><p>Online salvage &amp; clean title vehicle auctions</p></div>
+      </a>
+
     </div>
   </div>
 </div>
@@ -808,17 +821,12 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
 </footer>
 
 <script>
-// SLIDESHOW
 let cur=0;const slides=document.querySelectorAll(".hero-slide"),dots=document.querySelectorAll(".slide-dot"),bar=document.getElementById("slideProgress");let st=null;
 function goToSlide(n){slides[cur].classList.remove("active");dots[cur].classList.remove("active");cur=n;slides[cur].classList.add("active");dots[cur].classList.add("active");resetProg();}
 function nextSlide(){goToSlide((cur+1)%slides.length);}
 function resetProg(){bar.style.transition="none";bar.style.width="0%";bar.offsetHeight;bar.style.transition="width 4s linear";bar.style.width="100%";clearTimeout(st);st=setTimeout(nextSlide,4000);}
 resetProg();
-
-// VIDEO
 function playVideo(){document.getElementById("vidBox").innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';}
-
-// FORM
 const SHEET_URL="https://script.google.com/macros/s/AKfycbyJMHZ-XfDZiIU8qsph9XIqXsT0ZiHYb79e-vVUWhFOkTHfR2oaDVYsvfvYuwk6uiPZ/exec";
 async function submitForm(e){
   e.preventDefault();
@@ -836,12 +844,8 @@ async function submitForm(e){
     btn.style.background="#9b2c2c";btn.style.color="#fff";btn.disabled=false;
   }
 }
-
-// SCROLL REVEAL
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");});},{threshold:.1});
 document.querySelectorAll(".reveal,.how-card,.p-tile,.pr-card,.chk-list li").forEach(el=>{el.classList.add("reveal");obs.observe(el);});
-
-// HAMBURGER
 function toggleMenu(){
   document.querySelector('.ham-btn').classList.toggle('open');
   document.getElementById('navLinks').classList.toggle('open');

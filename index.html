@@ -4,6 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Dealer Licensing Authority — Start Your Own Dealer License</title>
+<meta name="description" content="Get your own auto dealer license in 30-45 days. Complete business setup, Corp/LLC registration, compliance, and wholesale auction access handled from start to finish by the Dealer Licensing Authority."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -26,10 +29,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:cen
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease-in-out;background-size:cover;background-position:center 60%}
 .hero-slide.active{opacity:1}
 .hero-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(10,22,40,.88) 0%,rgba(17,32,56,.62) 45%,rgba(10,22,40,.80) 100%)}
-.slide-1{background-image:url("1.png")}
-.slide-2{background-image:url("2.png")}
-.slide-3{background-image:url("3.png")}
-.slide-4{background-image:url("4.png")}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
 .slide-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:5}
 .slide-dot{width:26px;height:3px;border-radius:2px;background:rgba(255,255,255,.25);cursor:pointer;transition:all .3s}
 .slide-dot.active{background:var(--gold);width:42px}
@@ -108,93 +108,17 @@ section{padding:5rem 5%}
 .g-card-arrow{color:#C9A84C;font-size:1.05rem;line-height:1;transition:transform .22s}
 .g-card.g-active .g-card-arrow{transform:rotate(90deg)}
 
-/* ── PARTNERS STRIP — PNG LOGOS WITH HOVER NAME REVEAL ── */
-.partners-strip{margin-top:2.5rem;max-width:1200px;margin-left:auto;margin-right:auto}
-.partners-strip h4{text-align:center;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.2rem}
-.p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem}
-
-.p-tile{
-  background:#fff;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:11px;
-  padding:1.2rem .9rem 1rem;
-  text-align:center;
-  transition:all .35s;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  min-height:90px;
-}
-.p-tile:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 28px rgba(201,168,76,.22);
-  border-color:rgba(201,168,76,.4);
-  background:var(--navy-m);
-}
-
-/* Logo layer — visible by default */
-.p-tile-logo{
-  width:100%;
-  height:56px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:opacity .32s,transform .32s;
-  position:relative;
-  z-index:1;
-}
-.p-tile-logo img{
-  max-height:50px;
-  max-width:90%;
-  width:auto;
-  object-fit:contain;
-  display:block;
-}
-
-/* Name layer — hidden by default, revealed on hover */
-.p-tile-name{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:.75rem .65rem;
-  opacity:0;
-  transform:translateY(10px);
-  transition:opacity .32s,transform .32s;
-  z-index:2;
-  pointer-events:none;
-}
-.p-tile-name h5{
-  font-family:"Playfair Display",serif;
-  font-size:.82rem;
-  font-weight:700;
-  color:var(--gold);
-  margin:0 0 .3rem;
-  line-height:1.3;
-}
-.p-tile-name p{
-  font-size:.6rem;
-  color:rgba(255,255,255,.52);
-  line-height:1.45;
-  margin:0;
-}
-
-/* Hover: logo fades out, name fades in */
-.p-tile:hover .p-tile-logo{
-  opacity:0;
-  transform:translateY(-10px);
-}
-.p-tile:hover .p-tile-name{
-  opacity:1;
-  transform:translateY(0);
-}
+/* ── RESPONSIVE REVIEWS GRID ── */
+#reviews{background:var(--navy-m);position:relative;overflow:hidden;padding:5rem 5%}
+.reviews-header{text-align:center;margin-bottom:2.5rem;position:relative;z-index:2}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.r-bubble{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.18);border-radius:20px;padding:1.6rem 1.8rem;cursor:default;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;animation:floatBubble linear infinite;position:relative}
+.r-bubble:hover{transform:translateY(-6px) scale(1.03) !important;box-shadow:0 12px 36px rgba(201,168,76,.2);border-color:var(--gold)}
+.r-stars{color:var(--gold);font-size:.85rem;margin-bottom:.55rem;letter-spacing:2px}
+.r-text{font-size:.84rem;line-height:1.65;color:rgba(255,255,255,.75);margin-bottom:.9rem}
+.r-name{font-size:.76rem;font-weight:600;color:var(--gold);letter-spacing:.06em}
+.r-loc{font-size:.68rem;color:rgba(255,255,255,.38);margin-top:.15rem}
+@keyframes floatBubble{0%{transform:translateY(0px) rotate(0deg)}25%{transform:translateY(-8px) rotate(.3deg)}50%{transform:translateY(-3px) rotate(-.2deg)}75%{transform:translateY(-10px) rotate(.1deg)}100%{transform:translateY(0px) rotate(0deg)}}
 
 #pricing{background:var(--navy)}
 .pricing-wrap{max-width:900px;margin:0 auto}
@@ -263,7 +187,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .pricing-cards{grid-template-columns:1fr;gap:1.2rem}
   #globe-layout{grid-template-columns:1fr;gap:1.5rem}
   #globe-cards{grid-template-columns:1fr 1fr}
-  .p-grid{grid-template-columns:1fr 1fr}
   .form-row{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr;gap:2rem;text-align:center}
   .logo-combo{justify-content:center}
@@ -329,13 +252,7 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   #globe-info-flag{font-size:1.5rem}
   #globe-info-name{font-size:.88rem}
   #globe-info-desc{font-size:.76rem;line-height:1.58}
-  .partners-strip{margin-top:2rem}
-  .p-grid{grid-template-columns:1fr 1fr;gap:.5rem}
-  .p-tile{padding:.75rem .6rem;min-height:75px}
-  .p-tile-logo{height:40px}
-  .p-tile-logo img{max-height:36px}
-  .p-tile-name h5{font-size:.7rem}
-  .p-tile-name p{font-size:.56rem}
+
   .pr-card{padding:1.4rem}
   .pr-price{font-size:2.1rem}
   .pr-type{font-size:.6rem}
@@ -369,7 +286,6 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
   .ctr-n{font-size:1.2rem}
   .ctr-l{font-size:.5rem}
   #globe-cards{grid-template-columns:1fr}
-  .p-grid{grid-template-columns:1fr}
   .pr-price{font-size:1.8rem}
 }
 </style>
@@ -398,10 +314,10 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
 <!-- HERO -->
 <section id="hero">
   <div class="hero-slides">
-    <div class="hero-slide slide-1 active"></div>
-    <div class="hero-slide slide-2"></div>
-    <div class="hero-slide slide-3"></div>
-    <div class="hero-slide slide-4"></div>
+    <div class="hero-slide active"><img src="1.png" alt="Auto Dealer Wholesale Auction Floor" loading="eager" fetchpriority="high"></div>
+    <div class="hero-slide"><img src="2.png" alt="Buying vehicles from mobile phone" loading="lazy"></div>
+    <div class="hero-slide"><img src="3.png" alt="Luxury car showroom inventory" loading="lazy"></div>
+    <div class="hero-slide"><img src="4.png" alt="Car shipping and export logistics" loading="lazy"></div>
   </div>
   <div class="slide-progress" id="slideProgress"></div>
   <div class="hero-grid"></div>
@@ -409,7 +325,7 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
     <div class="hero-inner">
       <div class="hero-pill">10+ Years in the Auto Industry</div>
       <h1 class="hero-h1">Get Your Own</h1>
-      <div class="hero-subline"><em style="font-style:normal">Auto Dealer License</em> in 30 Days.</div>
+      <div class="hero-subline"><em style="font-style:normal">Auto Dealer License</em> in 30–45 Days.</div>
       <p class="hero-sub">Get fully licensed under your own business name, access dealer-only wholesale auctions, and start buying and selling vehicles — we handle everything from start to finish.</p>
       <div class="hero-bid-badges">
         <span class="hbb">
@@ -432,7 +348,7 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
         </a>
       </div>
       <div class="hero-counters">
-        <div class="ctr"><span class="ctr-n">30</span><span class="ctr-l">Days to License</span></div>
+        <div class="ctr"><span class="ctr-n">30–45</span><span class="ctr-l">Days to License</span></div>
         <div class="ctr"><span class="ctr-n">10+</span><span class="ctr-l">Years Experience</span></div>
         <div class="ctr"><span class="ctr-n">4</span><span class="ctr-l">Markets Unlocked</span></div>
       </div>
@@ -507,7 +423,8 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
         <div class="how-n">05</div>
         <div class="how-ico"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <h3>Your License Is Approved</h3>
-        <p>In as little as 21–30 days, your dealer license is active under your own business name.</p>
+        <p>In as little as 30–45 days, your dealer license is active under your own business name.</p>
+        <p style="margin-top:.6rem;font-size:.78rem;font-weight:700;color:var(--gold);"><strong>⚠ MANDATORY: A pre-licensing seminar must be attended and completed as a requirement for dealer license approval.</strong></p>
       </div>
       <div class="how-card reveal">
         <div class="how-n">06</div>
@@ -552,53 +469,7 @@ footer{background:#060E1C;padding:3.5rem 5% 2rem;border-top:1px solid rgba(201,1
     </div>
   </div>
 
-  <!-- ══ TRUSTED PARTNERS — PNG LOGOS WITH HOVER NAME REVEAL ══ -->
-  <div class="partners-strip">
-    <h4>Trusted Industry Partners &amp; Platforms</h4>
-    <div class="p-grid">
 
-      <a class="p-tile reveal" href="https://www.manheim.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="a.png" alt="Manheim"></div>
-        <div class="p-tile-name"><h5>Manheim</h5><p>North America's largest wholesale auto auction</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.upstart.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="b.png" alt="Upstart"></div>
-        <div class="p-tile-name"><h5>Upstart</h5><p>AI-powered financing solutions</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.sba.gov" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="c.png" alt="SBA"></div>
-        <div class="p-tile-name"><h5>SBA Resources</h5><p>Small business tools for dealer entrepreneurs</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.autocheck.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="d.png" alt="AutoCheck"></div>
-        <div class="p-tile-name"><h5>AutoCheck / Experian</h5><p>Vehicle history reports for smart buying</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.autofinance.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="e.png" alt="AFC"></div>
-        <div class="p-tile-name"><h5>Automotive Finance Corp</h5><p>Floorplan financing for your inventory</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.waynereaves.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="f.png" alt="Wayne Reaves"></div>
-        <div class="p-tile-name"><h5>Wayne Reaves</h5><p>Dealer software &amp; websites</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.usautosupply.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="g.png" alt="US Auto Supply"></div>
-        <div class="p-tile-name"><h5>US Auto Supply</h5><p>Dealer supplies &amp; accessories</p></div>
-      </a>
-
-      <a class="p-tile reveal" href="https://www.shiply.com" target="_blank" rel="noopener">
-        <div class="p-tile-logo"><img src="h.png" alt="Shiply"></div>
-        <div class="p-tile-name"><h5>Shiply Transport</h5><p>Nationwide vehicle shipping for dealers</p></div>
-      </a>
-
-    </div>
-  </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
@@ -650,6 +521,16 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
 </script>
 </section>
 
+<!-- FLOATING REVIEWS -->
+<section id="reviews">
+  <div class="reviews-header">
+    <span class="s-label">Client Reviews</span>
+    <h2 class="s-title" style="text-align:center">What Our Clients Say</h2>
+    <div class="bar" style="margin:1rem auto"></div>
+  </div>
+  <div class="reviews-grid" id="reviewsGrid"></div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="pricing-wrap">
@@ -668,23 +549,23 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
           <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Full dealer license application &amp; filing</li>
           <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Background check &amp; seminar registration</li>
           <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Dealer plates &amp; auction credentials</li>
-          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Surety bond &amp; garage liability insurance</li>
+          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Office setup furnishings as required</li>
         </ul>
       </div>
       <div class="pr-card featured reveal">
         <div class="pr-badge">Ongoing</div>
         <span class="pr-type">Monthly Fee</span>
         <div class="pr-price">$650</div>
-        <span class="pr-sub">Ongoing Administrative Services</span>
+        <span class="pr-sub">Dealer Facility — Your Professional Base</span>
         <ul class="pr-list">
-          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ongoing compliance &amp; renewal support</li>
+          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><strong>Monthly Rent</strong> — $650/month facility fee</li>
           <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Continuous project management</li>
           <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Access to our specialist team year-round</li>
-          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Optional — available after setup completes</li>
+          <li><div class="pr-check"><svg width="9" height="9" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Client Office Space — your dedicated professional suite</li>
         </ul>
       </div>
     </div>
-    <p class="pr-note">* Government fees, insurance premiums, and surety bond costs vary and are separate from the above service fees.</p>
+    <p class="pr-note"><strong style="color:rgba(255,255,255,.55)">* Government fees, insurance premiums, and surety bond costs vary and are separate from the above service fees. Total one-time setup investment: $500.</strong></p>
   </div>
 </section>
 
@@ -703,7 +584,7 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
         <li><div class="chk-dot"><svg width="10" height="10" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Bid in person or remotely via smartphone — from anywhere</li>
         <li><div class="chk-dot"><svg width="10" height="10" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Handle ALL unannounced inspections in relation to your office, license, or records — we manage it from start to finish</li>
         <li><div class="chk-dot"><svg width="10" height="10" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Compliant office setup — fully equipped with desk, chair, and landline phone necessary to pass your license inspection</li>
-        <li><div class="chk-dot"><svg width="10" height="10" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Dealer license + 3 dealer plates — legally operate unregistered vehicles on public roads for business and demonstration purposes</li>
+        <li><div class="chk-dot"><svg width="10" height="10" fill="none" stroke="#C9A84C" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Dealer license + 3 dealer plates</li>
       </ul>
     </div>
     <div class="form-box">
@@ -760,7 +641,7 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
           <span class="phone-num">877-382-7860</span>
         </div>
       </a>
-      <p class="form-note">No obligations. Free consultation. Licensed in as little as 30 days.</p>
+      <p class="form-note">No obligations. Free consultation. Licensed in as little as 30–45 days.</p>
     </div>
   </div>
 </section>
@@ -795,7 +676,7 @@ function setActive(id){activeId=id;document.querySelectorAll(".g-card").forEach(
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2025 <span>Dealer Licensing Authority</span>. All rights reserved.</span>
+    <span>© <span id="copyrightYear">2026</span> <span>Dealer Licensing Authority</span>. All rights reserved.</span>
     <span>USA · Canada · Mexico · Europe</span>
   </div>
 </footer>
@@ -806,7 +687,7 @@ function goToSlide(n){slides[cur].classList.remove("active");dots[cur].classList
 function nextSlide(){goToSlide((cur+1)%slides.length);}
 function resetProg(){bar.style.transition="none";bar.style.width="0%";bar.offsetHeight;bar.style.transition="width 4s linear";bar.style.width="100%";clearTimeout(st);st=setTimeout(nextSlide,4000);}
 resetProg();
-function playVideo(){document.getElementById("vidBox").innerHTML='<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" allow="autoplay;fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block"></iframe>';}
+function playVideo(){document.getElementById("vidBox").innerHTML='<video src="intro.mp4" controls autoplay style="width:100%;height:100%;object-fit:cover;display:block;border:none;border-radius:16px"></video>';}
 const SHEET_URL="https://script.google.com/macros/s/AKfycbyJMHZ-XfDZiIU8qsph9XIqXsT0ZiHYb79e-vVUWhFOkTHfR2oaDVYsvfvYuwk6uiPZ/exec";
 async function submitForm(e){
   e.preventDefault();
@@ -824,8 +705,31 @@ async function submitForm(e){
     btn.style.background="#9b2c2c";btn.style.color="#fff";btn.disabled=false;
   }
 }
+// REVIEWS GRID INITIALIZATION
+const REVIEWS=[
+  {stars:5,text:"I had no idea how to get a dealer license. They handled everything from start to finish. Got my license in under 35 days!",name:"Marcus T.",loc:"Atlanta, GA"},
+  {stars:5,text:"Best investment I made. I'm now buying cars at wholesale prices and reselling for profit. The process was seamless.",name:"Darnell W.",loc:"Houston, TX"},
+  {stars:5,text:"Professional team, fast turnaround. They registered my LLC, got my plates, and set up my office. Highly recommend.",name:"Jerome K.",loc:"Miami, FL"},
+  {stars:5,text:"I was skeptical at first but they delivered everything they promised. My dealer license came back in 32 days.",name:"Tiffany R.",loc:"Las Vegas, NV"},
+  {stars:5,text:"Now I have auction access across the US, Canada, and Mexico. This changed my entire business.",name:"Carlos M.",loc:"Dallas, TX"},
+  {stars:5,text:"They took care of the seminar registration, background check, and all paperwork. I just showed up and signed.",name:"Brenda L.",loc:"Charlotte, NC"},
+];
+(function initReviews(){
+  const grid=document.getElementById("reviewsGrid");
+  if(!grid)return;
+  const delays=[0,1.5,3,0.8,2.2,3.8];
+  const durations=[7,8,6.5,7.5,9,8.2];
+  REVIEWS.forEach((r,i)=>{
+    const el=document.createElement("div");
+    el.className="r-bubble reveal";
+    el.style.animationDelay=delays[i]+"s";
+    el.style.animationDuration=durations[i]+"s";
+    el.innerHTML=`<div class="r-stars">${"★".repeat(r.stars)}</div><p class="r-text">"${r.text}"</p><div class="r-name">${r.name}</div><div class="r-loc">${r.loc}</div>`;
+    grid.appendChild(el);
+  });
+})();
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");});},{threshold:.1});
-document.querySelectorAll(".reveal,.how-card,.p-tile,.pr-card,.chk-list li").forEach(el=>{el.classList.add("reveal");obs.observe(el);});
+document.querySelectorAll(".reveal,.how-card,.pr-card,.chk-list li").forEach(el=>{el.classList.add("reveal");obs.observe(el);});
 function toggleMenu(){
   document.querySelector('.ham-btn').classList.toggle('open');
   document.getElementById('navLinks').classList.toggle('open');
@@ -843,6 +747,8 @@ document.addEventListener('click',e=>{
     nav.classList.remove('open');btn.classList.remove('open');
   }
 });
+// Set Copyright Year
+document.getElementById("copyrightYear").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
